@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <div className="App">
         <Navbar />
         <h1>Hello World</h1>
+        <Footer />
       </div>
     </ChakraProvider>
   );
