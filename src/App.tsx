@@ -1,17 +1,20 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import { Router } from "@reach/router";
 import React from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import HeroContainer from "./containers/HeroContainer";
+import Home from "./pages/home";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <ChakraProvider>
-      <div className="App">
-        <Navbar />
-        <HeroContainer />
-        <Footer />
-      </div>
+      <Navbar />
+      <Router>
+        <Home path="/" />
+        <Login path="/login" />
+      </Router>
+      <Footer />
     </ChakraProvider>
   );
 }
