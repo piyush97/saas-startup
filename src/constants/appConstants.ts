@@ -9,3 +9,4 @@ export const CTA_IMAGE_URL = "https://picsum.photos/800/600";
 export const HERO_CTA_TEXT = "Know More";
 export const SIGN_UP = "/signup";
 export const LOG_IN = "/login";
+export const PASSWORDS_DONT_MATCH = "Passwords don't match";
