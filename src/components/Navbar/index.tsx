@@ -3,11 +3,11 @@ import {
   Box,
   Flex,
   Heading,
-  Link,
   Stack,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
+import { Link } from "@reach/router";
 import React from "react";
 import { APP_NAME } from "../../constants/appConstants";
 import NavbarContainer from "../../containers/NavbarContainer";
@@ -56,7 +56,7 @@ const MenuLinks = ({ isOpen }) => {
 };
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
-    <Link href={to}>
+    <Link to={to}>
       <Text display="block" {...rest}>
         {children}
       </Text>

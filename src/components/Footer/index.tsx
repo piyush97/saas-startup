@@ -16,7 +16,15 @@ import {
 } from "../../constants/appConstants";
 const Footer = () => {
   return (
-    <Box as="footer" role="contentinfo" py="6">
+    <Box
+      as="footer"
+      role="contentinfo"
+      py="6"
+      position="fixed"
+      left="0"
+      bottom="0"
+      width="100%"
+    >
       <Flex
         direction={{ base: "column", md: "row" }}
         maxW={{ base: "xl", md: "7x1" }}

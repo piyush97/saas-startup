@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./pages/home";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Home path="/" />
         <Login path="/login" />
+        <SignUp path="/signup" />
       </Router>
       <Footer />
     </ChakraProvider>
