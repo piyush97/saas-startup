@@ -1,6 +1,7 @@
 import { CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Flex,
   Heading,
   Stack,
@@ -9,8 +10,9 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "@reach/router";
 import React from "react";
-import { APP_NAME } from "../../constants/appConstants";
+import { APP_NAME, COLOR_SCHEME } from "../../constants/appConstants";
 import NavbarContainer from "../../containers/NavbarContainer";
+import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
 
@@ -32,6 +34,8 @@ const Navbar = (props: any) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
+  const { user, signOut } = useAuth();
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -46,7 +50,11 @@ const MenuLinks = ({ isOpen }) => {
       >
         {menu.map((edge) => (
           <MenuItem to={edge.link} key={edge.key} isLast={edge.isLast}>
-            {edge.name}
+            {edge.isButton ? (
+              <Button colorScheme={COLOR_SCHEME}>{edge.name}</Button>
+            ) : (
+              edge.name
+            )}
           </MenuItem>
         ))}
         <ThemeSwitch />

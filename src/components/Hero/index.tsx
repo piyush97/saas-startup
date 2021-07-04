@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Image, Stack } from "@chakra-ui/react";
 import React from "react";
+import { COLOR_SCHEME } from "../../constants/appConstants";
 
 const Hero = ({ title, subText, ctaText, image, imageText, ...rest }) => {
   return (
@@ -35,7 +36,7 @@ const Hero = ({ title, subText, ctaText, image, imageText, ...rest }) => {
           {subText}
         </Heading>
         <Button
-          colorScheme="teal"
+          colorScheme={COLOR_SCHEME}
           borderRadius="8px"
           py="4"
           px="4"

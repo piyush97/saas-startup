@@ -3,7 +3,7 @@ import { supabase } from "../supabaseClient";
 
 const AuthContext = createContext(null);
 /**
- *Auth Provider
+ * Auth Provider
  *
  * @param {*} { children }
  */
@@ -30,9 +30,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const value = {
-    signUp: (data) => supabase.auth.signUp(data),
-    signIn: (data) => supabase.auth.signIn(data),
-    signOut: () => supabase.auth.signOut(),
+    signUp: async (data) => await supabase.auth.signUp(data),
+    signIn: async (data) => await supabase.auth.signIn(data),
+    signOut: async () => await supabase.auth.signOut(),
     user,
   };
   // Provider to passdown values
