@@ -64,7 +64,17 @@ const MenuLinks = ({ isOpen }) => {
 };
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
-    <Link to={to}>
+    <Link
+      to={to}
+      {...rest}
+      getProps={({ isCurrent }) => {
+        return {
+          style: {
+            fontWeight: isCurrent && "bold",
+          },
+        };
+      }}
+    >
       <Text display="block" {...rest}>
         {children}
       </Text>
