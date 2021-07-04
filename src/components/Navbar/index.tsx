@@ -34,7 +34,7 @@ const Navbar = (props: any) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
-  const { user, signOut } = useAuth();
+  const { user, signOut, isAuth } = useAuth();
 
   return (
     <Box
@@ -48,7 +48,7 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        {user !== null && user.aud === "authenticated" ? (
+        {isAuth ? (
           <Button colorScheme={COLOR_SCHEME} onClick={() => signOut()}>
             Sign Out
           </Button>

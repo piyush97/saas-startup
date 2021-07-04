@@ -11,6 +11,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(null);
+  const [isAuth, setIsAuth] = useState(false);
+
   useEffect(() => {
     const session = supabase.auth.session();
     setUser((session && session?.user) ?? null);
@@ -34,7 +36,9 @@ export const AuthProvider = ({ children }) => {
       try {
         await supabase.auth
           .signUp(data)
-          .then((result) => setError(result.error))
+          .then((result) => {
+            setError(result.error);
+          })
           .catch((error) => {
             throw new Error("Error" + error);
           });
@@ -46,7 +50,9 @@ export const AuthProvider = ({ children }) => {
       try {
         await supabase.auth
           .signIn(data)
-          .then((result) => setError(result.error))
+          .then((result) => {
+            result && result.error ? setError(result.error) : setIsAuth(true);
+          })
           .catch((error) => {
             throw new Error("Error" + error);
           });
@@ -54,9 +60,10 @@ export const AuthProvider = ({ children }) => {
         throw new Error("Error" + error);
       }
     },
-    signOut: async () => await supabase.auth.signOut(),
+    signOut: async () => (await supabase.auth.signOut()) && setIsAuth(false),
     user,
     error,
+    isAuth,
   };
   // Provider to passdown values
 
@@ -66,6 +73,8 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export const AuthConsumer = AuthContext.Consumer;
 
 export const useAuth = () => {
   return useContext(AuthContext);
