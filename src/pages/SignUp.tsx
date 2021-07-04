@@ -12,6 +12,7 @@ import { Link, RouteComponentProps } from "@reach/router";
 import React, { useState } from "react";
 import {
   COLOR_SCHEME,
+  EMAIL_PLACEHOLDER,
   LOG_IN,
   PASSWORDS_DONT_MATCH,
 } from "../constants/appConstants";
@@ -52,7 +53,7 @@ const SignUp = (props: RouteComponentProps) => {
               <Input
                 type="email"
                 onChange={(e) => setemail(e.target.value)}
-                placeholder="user@saas-startup.com"
+                placeholder={EMAIL_PLACEHOLDER}
                 required
               />
             </FormControl>

@@ -11,3 +11,4 @@ export const SIGN_UP = "/signup";
 export const LOG_IN = "/login";
 export const PASSWORDS_DONT_MATCH = "Passwords don't match";
 export const COLOR_SCHEME = "blue";
+export const EMAIL_PLACEHOLDER = "user@saas-startup.com";

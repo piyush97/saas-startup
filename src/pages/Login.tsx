@@ -9,7 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { Link, RouteComponentProps } from "@reach/router";
 import React, { useState } from "react";
-import { COLOR_SCHEME, SIGN_UP } from "../constants/appConstants";
+import {
+  COLOR_SCHEME,
+  EMAIL_PLACEHOLDER,
+  SIGN_UP,
+} from "../constants/appConstants";
 import { useAuth } from "../contexts/AuthProvider";
 
 const Login = (props: RouteComponentProps) => {
@@ -39,7 +43,7 @@ const Login = (props: RouteComponentProps) => {
               <Input
                 onChange={(e) => setemail(e.target.value)}
                 type="email"
-                placeholder="user@saas-startup.com"
+                placeholder={EMAIL_PLACEHOLDER}
               />
             </FormControl>
             <FormControl mt={6}>
