@@ -19,7 +19,7 @@ import {
 import { useAuth } from "../contexts/AuthProvider";
 
 const SignUp = (props: RouteComponentProps) => {
-  const { signUp } = useAuth();
+  const { signUp, error } = useAuth();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
@@ -87,6 +87,7 @@ const SignUp = (props: RouteComponentProps) => {
             </Button>
             <Text fontSize="lg" color="red" align="center">
               {errorMessage && errorMessage}
+              {error && error.message}
             </Text>
           </form>
         </Box>

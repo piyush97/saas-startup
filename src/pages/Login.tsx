@@ -6,6 +6,7 @@ import {
   FormLabel,
   Heading,
   Input,
+  Text,
 } from "@chakra-ui/react";
 import { Link, RouteComponentProps } from "@reach/router";
 import React, { useState } from "react";
@@ -17,17 +18,13 @@ import {
 import { useAuth } from "../contexts/AuthProvider";
 
 const Login = (props: RouteComponentProps) => {
-  const { signIn } = useAuth();
+  const { signIn, error } = useAuth();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  console.log("Auth Error", error);
   const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      signIn({ email, password });
-    } catch (error) {
-      throw new Error("Error in login: " + error);
-    }
+    signIn({ email, password });
   };
 
   return (
@@ -65,6 +62,7 @@ const Login = (props: RouteComponentProps) => {
             >
               Log In
             </Button>
+            {error && <Text color="red"> {error.message}</Text>}
           </form>
         </Box>
       </Box>

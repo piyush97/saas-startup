@@ -48,15 +48,21 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        {menu.map((edge) => (
-          <MenuItem to={edge.link} key={edge.key} isLast={edge.isLast}>
-            {edge.isButton ? (
-              <Button colorScheme={COLOR_SCHEME}>{edge.name}</Button>
-            ) : (
-              edge.name
-            )}
-          </MenuItem>
-        ))}
+        {user !== null && user.aud === "authenticated" ? (
+          <Button colorScheme={COLOR_SCHEME} onClick={() => signOut()}>
+            Sign Out
+          </Button>
+        ) : (
+          menu.map((edge) => (
+            <MenuItem to={edge.link} key={edge.key} isLast={edge.isLast}>
+              {edge.isButton ? (
+                <Button colorScheme={COLOR_SCHEME}>{edge.name}</Button>
+              ) : (
+                edge.name
+              )}
+            </MenuItem>
+          ))
+        )}
         <ThemeSwitch />
       </Stack>
     </Box>
