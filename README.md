@@ -2,7 +2,7 @@
 
 Please find the video's code by branch name
 
-Based on https://www.youtube.com/watch?v=UK7Jn-WjAdU&list=PLpkrMokklzr17jNBSLGiag2QNb6cSSwOh Playlist
+Based on <a href="https://www.youtube.com/playlist?list=PLpkrMokklzr17jNBSLGiag2QNb6cSSwOh">My Youtube Course</a>
 
 - <a href="https://github.com/piyush97/saas-startup">Part 1</a>
 - <a href="https://github.com/piyush97/saas-startup/tree/part2/hello-world-and-setup">Part 2</a>
