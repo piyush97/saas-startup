@@ -12,3 +12,5 @@ Based on https://www.youtube.com/watch?v=UK7Jn-WjAdU&list=PLpkrMokklzr17jNBSLGia
 - <a href="https://github.com/piyush97/saas-startup/tree/part6/routing">Part 6</a>
 - <a href="https://github.com/piyush97/saas-startup/tree/part7/login">Part 7</a>
 - <a href="https://github.com/piyush97/saas-startup/tree/part8/supabase">Part 8</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part9/error-messages">Part 9</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part10/protected-routes">Part 10</a>
