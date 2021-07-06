@@ -21,7 +21,7 @@ const Login = (props: RouteComponentProps) => {
   const { signIn, error } = useAuth();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  console.log("Auth Error", error);
+
   const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     signIn({ email, password });

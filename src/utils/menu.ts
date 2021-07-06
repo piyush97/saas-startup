@@ -1,3 +1,4 @@
+import { LOG_IN, SIGN_UP } from "./../constants/appConstants";
 export const menu = [
   {
     name: "Home",
@@ -11,7 +12,7 @@ export const menu = [
   {
     name: "Login",
     key: 3,
-    link: "/login",
+    link: LOG_IN,
     isLast: false,
     dependsOnLogin: true,
     isButton: false,
@@ -19,16 +20,9 @@ export const menu = [
   {
     name: "Sign Up",
     key: 4,
-    link: "/signup",
+    link: SIGN_UP,
     isLast: false,
     dependsOnLogin: true,
     isButton: true,
   },
-  // {
-  //   name: "Logout",
-  //   key: 4,
-  //   link: "/logout",
-  //   isLast: true,
-  //   dependsOnLogin: true,
-  // },
 ];

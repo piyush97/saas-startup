@@ -11,7 +11,10 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(null);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(() => {
+    const value = localStorage.getItem("isAuth");
+    return value !== null ? JSON.parse(value) : false;
+  });
 
   useEffect(() => {
     const session = supabase.auth.session();
@@ -30,6 +33,16 @@ export const AuthProvider = ({ children }) => {
       listener.unsubscribe();
     };
   }, []);
+
+  const onLogin = () => {
+    setIsAuth(true);
+    localStorage.setItem("isAuth", "true");
+  };
+
+  const onLogout = () => {
+    localStorage.setItem("isAuth", "false");
+    setIsAuth(false);
+  };
 
   const value = {
     signUp: async (data) => {
@@ -51,7 +64,7 @@ export const AuthProvider = ({ children }) => {
         await supabase.auth
           .signIn(data)
           .then((result) => {
-            result && result.error ? setError(result.error) : setIsAuth(true);
+            result && result.error ? setError(result.error) : onLogin();
           })
           .catch((error) => {
             throw new Error("Error" + error);
@@ -60,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error("Error" + error);
       }
     },
-    signOut: async () => (await supabase.auth.signOut()) && setIsAuth(false),
+    signOut: async () => await supabase.auth.signOut().then(() => onLogout()),
     user,
     error,
     isAuth,

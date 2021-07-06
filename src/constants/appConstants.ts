@@ -7,8 +7,13 @@ export const HERO_TITLE =
 export const HERO_SUBTEXT = "Solving needs since 2021";
 export const CTA_IMAGE_URL = "https://picsum.photos/800/600";
 export const HERO_CTA_TEXT = "Know More";
+/**
+ * Routes
+ */
 export const SIGN_UP = "/signup";
 export const LOG_IN = "/login";
+export const DASHBOARD = "/dashboard";
+
 export const PASSWORDS_DONT_MATCH = "Passwords don't match";
 export const COLOR_SCHEME = "blue";
 export const EMAIL_PLACEHOLDER = "user@saas-startup.com";
