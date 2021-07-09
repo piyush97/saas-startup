@@ -9,15 +9,19 @@ const DashboardStage = () => {
     initialStep: 0,
   });
   return (
-    <Box as="main" p="4">
+    <Box as="main" p="12">
       <Steps activeStep={activeStep} colorScheme={COLOR_SCHEME}>
-        {STEPS.map(({ label, content }) => (
-          <Step label={label} key={label} onClick={() => nextStep()}>
+        {STEPS.map(({ label, content, description }) => (
+          <Step
+            label={label}
+            key={label}
+            onClick={() => nextStep()}
+            description={description}
+          >
             {content}
           </Step>
         ))}
       </Steps>
-      <Box borderWidth="4px" borderStyle="dashed" rounded="md" h="96" />
     </Box>
   );
 };
