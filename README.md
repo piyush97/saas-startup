@@ -14,3 +14,4 @@ Based on <a href="https://www.youtube.com/playlist?list=PLpkrMokklzr17jNBSLGiag2
 - <a href="https://github.com/piyush97/saas-startup/tree/part8/supabase">Part 8</a>
 - <a href="https://github.com/piyush97/saas-startup/tree/part9/error-messages">Part 9</a>
 - <a href="https://github.com/piyush97/saas-startup/tree/part10/protected-routes">Part 10</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part11/Dashboard">Part 11</a>
