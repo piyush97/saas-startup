@@ -18,18 +18,24 @@ import ThemeSwitch from "../ThemeSwitch";
 
 const Navbar = (props: any) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { isAuth } = useAuth();
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <NavbarContainer {...props}>
-      <Flex>
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
-          {/* We'll create a custom file to use all the constants [Best Practice] */}
-          {APP_NAME}
-        </Heading>
-      </Flex>
-      <MenuLinks isOpen={isOpen} />
-      <MenuToggle toggle={toggle} isOpen={isOpen} />
-    </NavbarContainer>
+    <>
+      {isAuth ||
+        (localStorage.getItem("isAuth") === "true" && (
+          <NavbarContainer {...props}>
+            <Flex>
+              <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
+                {/* We'll create a custom file to use all the constants [Best Practice] */}
+                {APP_NAME}
+              </Heading>
+            </Flex>
+            <MenuLinks isOpen={isOpen} />
+            <MenuToggle toggle={toggle} isOpen={isOpen} />
+          </NavbarContainer>
+        ))}
+    </>
   );
 };
 
