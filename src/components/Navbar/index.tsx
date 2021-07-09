@@ -23,7 +23,7 @@ const Navbar = (props: any) => {
   return (
     <>
       {isAuth ||
-        (localStorage.getItem("isAuth") === "true" && (
+        (localStorage.getItem("isAuth") === "false" && (
           <NavbarContainer {...props}>
             <Flex>
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
