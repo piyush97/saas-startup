@@ -15,5 +15,7 @@ export const LOG_IN = "/login";
 export const DASHBOARD = "/dashboard";
 
 export const PASSWORDS_DONT_MATCH = "Passwords don't match";
-export const COLOR_SCHEME = "blue";
+export const COLOR_SCHEME = "purple";
+export const SIDEBAR_THEME_DARK = "purple.700";
+export const SIDEBAR_THEME_LIGHT = "purple.100";
 export const EMAIL_PLACEHOLDER = "user@saas-startup.com";
