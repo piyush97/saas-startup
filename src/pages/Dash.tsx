@@ -7,24 +7,31 @@ import {
   Flex,
   Icon,
   IconButton,
+  Image,
   Input,
   InputGroup,
   InputLeftElement,
-  Text,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import { AiFillGift } from "react-icons/ai";
-import { BsGearFill } from "react-icons/bs";
-import { FaBell, FaClipboardCheck, FaRss } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 import { FiMenu, FiSearch } from "react-icons/fi";
-import { HiCode, HiCollection } from "react-icons/hi";
-import { MdHome } from "react-icons/md";
+import ThemeSwitch from "../components/ThemeSwitch";
 import {
+  LOGO_DARK,
+  LOGO_WHITE,
   SIDEBAR_THEME_DARK,
   SIDEBAR_THEME_LIGHT,
 } from "../constants/appConstants";
+import { useAuth } from "../contexts/AuthProvider";
+import NavbarMenu from "../utils/navbarMenu";
 
 export default function Dash() {
   const sidebar = useDisclosure();
@@ -82,9 +89,7 @@ export default function Dash() {
       {...props}
     >
       <Flex px="4" py="5" align="center">
-        <Text fontSize="2xl" ml="2" color="white" fontWeight="semibold">
-          Saas
-        </Text>
+        <Image src={useColorModeValue(LOGO_WHITE, LOGO_DARK)} />
       </Flex>{" "}
       <Flex
         direction="column"
@@ -93,16 +98,15 @@ export default function Dash() {
         color="gray.600"
         aria-label="Main Navigation"
       >
-        <NavItem icon={MdHome}>Home</NavItem>
-        <NavItem icon={FaRss}>Articles</NavItem>
-        <NavItem icon={HiCollection}>Collections</NavItem>
-        <NavItem icon={FaClipboardCheck}>Checklists</NavItem>
-        <NavItem icon={HiCode}>Integrations</NavItem>
-        <NavItem icon={AiFillGift}>Changelog</NavItem>
-        <NavItem icon={BsGearFill}>Settings</NavItem>
+        {NavbarMenu.map(({ name, icon, url, key, ...rest }) => (
+          <NavItem icon={icon} key={key} {...rest}>
+            {name}
+          </NavItem>
+        ))}
       </Flex>
     </Box>
   );
+  const { signOut } = useAuth();
   return (
     <Box
       as="section"
@@ -127,6 +131,7 @@ export default function Dash() {
           justify="space-between"
           w="full"
           px="4"
+          py="5"
           bg={useColorModeValue("white", "gray.800")}
           borderBottomWidth="1px"
           borderColor="blackAlpha.300"
@@ -144,14 +149,38 @@ export default function Dash() {
           </InputGroup>
 
           <Flex align="center">
-            <Icon color="gray.500" as={FaBell} cursor="pointer" />
-            <Avatar
-              ml="4"
-              size="sm"
-              name="piyush97"
-              src="https://avatars.githubusercontent.com/piyush97"
-              cursor="pointer"
+            <ThemeSwitch />
+            <IconButton
+              bg="transparent"
+              aria-label="notifications"
+              icon={<FaBell />}
+              onClick={() => {}}
             />
+            <Menu>
+              <MenuButton
+                as={Avatar}
+                ml="4"
+                size="sm"
+                name="piyush97"
+                src="https://avatars.githubusercontent.com/piyush97"
+                cursor="pointer"
+              ></MenuButton>
+              <MenuList>
+                <MenuGroup title="Profile">
+                  <MenuItem>My Account</MenuItem>
+                  <MenuItem>Payments </MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Help">
+                  <MenuItem>Docs</MenuItem>
+                  <MenuItem>FAQ</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuItem cursor="pointer" onClick={() => signOut()}>
+                  Log Out
+                </MenuItem>
+              </MenuList>
+            </Menu>
           </Flex>
         </Flex>
 
