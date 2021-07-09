@@ -1,4 +1,4 @@
-export const APP_NAME = "SaaS Startup";
+export const APP_NAME = "Succour";
 export const LOGO_WHITE =
   "https://i.ibb.co/0t22LX1/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LOGO_DARK =
@@ -22,4 +22,16 @@ export const PASSWORDS_DONT_MATCH = "Passwords don't match";
 export const COLOR_SCHEME = "purple";
 export const SIDEBAR_THEME_DARK = "purple.700";
 export const SIDEBAR_THEME_LIGHT = "purple.100";
-export const EMAIL_PLACEHOLDER = "user@saas-startup.com";
+export const EMAIL_PLACEHOLDER = "user@succour.xyz";
+
+// Menu bar items
+export const HOME = "Home";
+export const HOME_ROUTE = "/dashboard";
+export const PROFILE = "My Profile";
+export const PROFILE_ROUTE = "/profile";
+export const COURSES = "Courses";
+export const COURSES_ROUTE = "/courses";
+export const UNIVERSITIES = "Universities";
+export const UNIVERSITIES_ROUTE = "/universities";
+export const APPLICATIONS = "My Applications";
+export const APPLICATIONS_ROUTE = "/applications";
