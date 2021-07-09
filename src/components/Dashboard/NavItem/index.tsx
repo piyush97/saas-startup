@@ -1,5 +1,4 @@
 import { Flex, Icon, useColorModeValue } from "@chakra-ui/react";
-
 const NavItem = (props) => {
   const { icon, children, ...rest } = props;
   return (

@@ -1,4 +1,5 @@
 import { Box, Flex, Image, useColorModeValue } from "@chakra-ui/react";
+import { Link } from "@reach/router";
 import NavItem from "../../components/Dashboard/NavItem";
 import {
   LOGO_DARK,
@@ -36,9 +37,11 @@ const SidebarContainer = (props) => (
       aria-label="Main Navigation"
     >
       {NavbarMenu.map(({ name, icon, url, key, ...rest }) => (
-        <NavItem icon={icon} key={key} {...rest}>
-          {name}
-        </NavItem>
+        <Link to={url} key={key}>
+          <NavItem icon={icon} {...rest}>
+            {name}
+          </NavItem>
+        </Link>
       ))}
     </Flex>
   </Box>
