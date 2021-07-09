@@ -1,8 +1,8 @@
 import { RouteComponentProps } from "@reach/router";
 import React from "react";
-import DashboardContainer from "../containers/DashboardContainer";
-import { useAuth } from "../contexts/AuthProvider";
-import Login from "./Login";
+import DashboardContainer from "../../containers/DashboardContainer";
+import { useAuth } from "../../contexts/AuthProvider";
+import Login from "../public/Login";
 
 const Dashboard = (props: RouteComponentProps) => {
   const { isAuth } = useAuth();

@@ -15,8 +15,8 @@ import {
   EMAIL_PLACEHOLDER,
   LOG_IN,
   PASSWORDS_DONT_MATCH,
-} from "../constants/appConstants";
-import { useAuth } from "../contexts/AuthProvider";
+} from "../../constants/appConstants";
+import { useAuth } from "../../contexts/AuthProvider";
 
 const SignUp = (props: RouteComponentProps) => {
   const { signUp, error } = useAuth();

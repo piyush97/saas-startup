@@ -14,8 +14,8 @@ import {
   COLOR_SCHEME,
   EMAIL_PLACEHOLDER,
   SIGN_UP,
-} from "../constants/appConstants";
-import { useAuth } from "../contexts/AuthProvider";
+} from "../../constants/appConstants";
+import { useAuth } from "../../contexts/AuthProvider";
 
 const Login = (props: RouteComponentProps) => {
   const { signIn, error } = useAuth();

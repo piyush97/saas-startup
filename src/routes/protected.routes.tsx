@@ -1,12 +1,14 @@
 import { Router } from "@reach/router";
 import React from "react";
-import { DASHBOARD } from "../constants/appConstants";
-import Dashboard from "../pages/dashboard";
+import { DASHBOARD, PROFILE_ROUTE } from "../constants/appConstants";
+import Dashboard from "../pages/protected/dashboard";
+import Profile from "../pages/protected/Profile";
 
 const ProtectedRoutes = () => {
   return (
     <Router>
       <Dashboard path={DASHBOARD} />
+      <Profile path={PROFILE_ROUTE} />
     </Router>
   );
 };
