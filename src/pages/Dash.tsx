@@ -39,7 +39,7 @@ export default function Dash() {
         rounded="md"
         py="3"
         cursor="pointer"
-        color="whiteAlpha.700"
+        color={useColorModeValue("blackAlpha.800", "whiteAlpha.700")}
         _hover={{
           bg: "blackAlpha.300",
           color: "whiteAlpha.900",
@@ -51,7 +51,7 @@ export default function Dash() {
       >
         {icon && (
           <Icon
-            mr="2"
+            mr="5"
             boxSize="4"
             _groupHover={{
               color: "gray.300",
