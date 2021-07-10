@@ -1,7 +1,7 @@
 import { Router } from "@reach/router";
 import React from "react";
 import { LOG_IN, SIGN_UP } from "../constants/appConstants";
-import Home from "../pages/public/home";
+import Home from "../pages/public/Home";
 import Login from "../pages/public/Login";
 import SignUp from "../pages/public/SignUp";
 
