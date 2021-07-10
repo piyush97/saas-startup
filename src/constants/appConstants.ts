@@ -3,6 +3,8 @@ export const LOGO_WHITE =
   "https://i.ibb.co/0t22LX1/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LOGO_DARK =
   "https://i.ibb.co/fpKMhhj/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo-3.png";
+export const ONLY_LOGO =
+  "https://i.ibb.co/QMg8DpQ/Copy-of-Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LINKEDIN_LINK = "https://linkedin.com/in/piyush24";
 export const GITHUB_LINK = "https://github.com/piyush97";
 export const TWITTER_LINK = "https://twitter.com/PiyushMehtas";

@@ -4,13 +4,18 @@ import {
   Button,
   Flex,
   Heading,
+  Image,
   Stack,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
 import { Link } from "@reach/router";
 import React from "react";
-import { APP_NAME, COLOR_SCHEME } from "../../constants/appConstants";
+import {
+  APP_NAME,
+  COLOR_SCHEME,
+  ONLY_LOGO,
+} from "../../constants/appConstants";
 import NavbarContainer from "../../containers/NavbarContainer";
 import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
@@ -26,6 +31,7 @@ const Navbar = (props: any) => {
         (localStorage.getItem("isAuth") === "false" && (
           <NavbarContainer {...props}>
             <Flex>
+              <Image src={ONLY_LOGO} width="8" />
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
                 {/* We'll create a custom file to use all the constants [Best Practice] */}
                 {APP_NAME}
