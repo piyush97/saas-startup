@@ -1,3 +1,4 @@
+import { navigate } from "@reach/router";
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
@@ -42,6 +43,7 @@ export const AuthProvider = ({ children }) => {
   const onLogout = () => {
     localStorage.setItem("isAuth", "false");
     setIsAuth(false);
+    navigate("/dashboard");
   };
 
   const value = {
@@ -74,6 +76,7 @@ export const AuthProvider = ({ children }) => {
       }
     },
     signOut: async () => await supabase.auth.signOut().then(() => onLogout()),
+    getUserDetails: async () => await supabase.auth.user(),
     user,
     error,
     isAuth,
