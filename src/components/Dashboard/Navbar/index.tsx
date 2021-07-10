@@ -5,14 +5,19 @@ import {
   InputGroup,
   InputLeftElement,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaBell } from "react-icons/fa";
 import { FiMenu, FiSearch } from "react-icons/fi";
+import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
 
-const DashboardNavbar = ({ signOut, sidebar }) => {
+const DashboardNavbar = () => {
+  const sidebar = useDisclosure();
+  const { signOut } = useAuth();
+
   return (
     <Flex
       as="header"

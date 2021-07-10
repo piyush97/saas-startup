@@ -9,12 +9,11 @@ import {
 import React from "react";
 import DashboardNavbar from "../../components/Dashboard/Navbar";
 import DashboardStage from "../../components/Dashboard/Stage";
-import { useAuth } from "../../contexts/AuthProvider";
 import SidebarContainer from "../SidebarContainer";
 
-export default function DashboardContainer() {
+export default function DashboardContainer({ content }) {
   const sidebar = useDisclosure();
-  const { signOut } = useAuth();
+
   return (
     <Box
       as="section"
@@ -33,8 +32,8 @@ export default function DashboardContainer() {
         </DrawerContent>
       </Drawer>
       <Box ml={{ base: 0, md: 60 }} transition=".6s ease">
-        <DashboardNavbar sidebar={sidebar} signOut={signOut} />
-        <DashboardStage />
+        <DashboardNavbar />
+        <DashboardStage content={content} />
       </Box>
     </Box>
   );

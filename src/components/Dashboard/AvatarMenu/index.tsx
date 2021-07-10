@@ -7,6 +7,7 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/react";
+import { navigate } from "@reach/router";
 import React from "react";
 
 const AvatarMenu = ({ signOut }) => {
@@ -22,7 +23,7 @@ const AvatarMenu = ({ signOut }) => {
       ></MenuButton>
       <MenuList>
         <MenuGroup title="Profile">
-          <MenuItem>My Account</MenuItem>
+          <MenuItem onClick={() => navigate("/profile")}>My Profile</MenuItem>
           <MenuItem>Payments </MenuItem>
         </MenuGroup>
         <MenuDivider />
