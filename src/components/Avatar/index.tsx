@@ -1,7 +1,8 @@
 import { Avatar as ChakraAvatar } from "@chakra-ui/avatar";
+import { Grid, GridItem, Link, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
-export default function Avatar({ url, size, onUpload, name }) {
+export default function Avatar({ url, size, onUpload, name, website }) {
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -55,32 +56,50 @@ export default function Avatar({ url, size, onUpload, name }) {
 
   return (
     <div>
-      {avatarUrl ? (
-        <img
-          src={avatarUrl}
-          alt="Avatar"
-          className="avatar image"
-          style={{ height: size, width: size }}
-        />
-      ) : (
-        <ChakraAvatar name={name} />
-      )}
-      <div style={{ width: size }}>
-        <label className="button primary block" htmlFor="single">
-          {uploading ? "Uploading ..." : "Upload"}
-        </label>
-        <input
-          style={{
-            visibility: "hidden",
-            position: "absolute",
-          }}
-          type="file"
-          id="single"
-          accept="image/*"
-          onChange={uploadAvatar}
-          disabled={uploading}
-        />
-      </div>
+      <label
+        className="button primary block"
+        htmlFor="single"
+        style={{ cursor: "pointer" }}
+      >
+        <Grid templateColumns="repeat(1, 1fr)" gap={1}>
+          <GridItem colStart={1} colEnd={2} h="10">
+            {uploading ? (
+              "Uploading ..."
+            ) : avatarUrl ? (
+              <ChakraAvatar
+                src={avatarUrl}
+                alt="Avatar"
+                _hover={{ bg: "gray.600" }}
+                className="avatar image"
+                style={{ height: size, width: size }}
+              />
+            ) : (
+              <ChakraAvatar name={name} _hover={{ bg: "gray.600" }} />
+            )}
+          </GridItem>
+          <GridItem colStart={6} colEnd={12} h="5">
+            <Text fontSize="xl" ml={3}>
+              {name}
+            </Text>
+          </GridItem>
+          <GridItem colStart={6} colEnd={12} h="5">
+            <Link href={website} isExternal>
+              {website}
+            </Link>
+          </GridItem>
+        </Grid>
+      </label>
+      <input
+        style={{
+          visibility: "hidden",
+          position: "absolute",
+        }}
+        type="file"
+        id="single"
+        accept="image/*"
+        onChange={uploadAvatar}
+        disabled={uploading}
+      />
     </div>
   );
 }

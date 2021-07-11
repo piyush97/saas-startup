@@ -1,17 +1,20 @@
 import {
   Box,
   Button,
+  Divider,
   Flex,
   FormControl,
   FormHelperText,
   FormLabel,
   Heading,
   Input,
+  Text,
   Tooltip,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { FaPencilAlt } from "react-icons/fa";
-import Avatar from "../../components/Avatar";
+import Avatar from "../../components/Avatar/index";
 import { COLOR_SCHEME } from "../../constants/appConstants";
 import { getProfile, updateProfile } from "../../utils/async/profileApis";
 
@@ -19,17 +22,25 @@ const ProfileContainer = () => {
   const [profileData, setProfileData] = useState([]);
   const [disabled, setDisabled] = useState(true);
   const [username, setUserName] = useState("");
-  const [_, setAvatarUrl] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
   const [website, setWebsite] = useState("");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     getProfile().then((result) => {
       setProfileData(result);
       setUserName(result.username);
+      setName(result.name);
       setAvatarUrl(result.avatarUrl);
       setWebsite(result.website);
     });
   }, [setProfileData]);
+  const onUpdateProfile = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    updateProfile({ username, avatar_url: avatarUrl, website, name }).then(() =>
+      window.location.reload()
+    );
+  };
   const handleDisablility = () => setDisabled(!disabled);
   return (
     <Flex width="full" align="center" justifyContent="center">
@@ -40,41 +51,70 @@ const ProfileContainer = () => {
           </Box>
         </Tooltip>
         <Box textAlign="center">
-          <Heading>Profile</Heading>
+          <Heading> My Profile</Heading>
         </Box>
-        <pre>{JSON.stringify(profileData)}</pre>
-        <Box my={4} textAlign="left" borderWidth="2px" borderRadius="lg" p={8}>
+
+        <Box
+          my={4}
+          borderWidth="1px"
+          bg={useColorModeValue("whiteAlpha.700", "blackAlpha.300")}
+          borderRadius="lg"
+          p={8}
+          overflow="hidden"
+        >
           <Avatar
             name={profileData["name"]}
             url={profileData["avatar_url"]}
-            size={150}
+            website={profileData["website"]}
+            size={60}
             onUpload={(url) => {
               setAvatarUrl(url);
-              updateProfile({ username, website, avatar_url: url });
+              updateProfile({ username, website, avatar_url: url, name });
             }}
           />
-          <form>
-            <FormControl id="username">
-              <FormLabel>Username</FormLabel>
-              <Input
-                type="username"
-                defaultValue={profileData["username"]}
-                disabled={disabled}
-              />
-              <FormHelperText>Make sure it's unique</FormHelperText>
-            </FormControl>
-            <FormControl id="website">
-              <FormLabel>website</FormLabel>
-              <Input
-                type="url"
-                defaultValue={profileData["website"]}
-                disabled={disabled}
-              />
-            </FormControl>
-            <Button type="submit" colorScheme={COLOR_SCHEME} w="100">
-              Edit
-            </Button>
-          </form>
+          <Text as="i">{profileData["username"]}</Text>
+          <Divider py="2" />
+          {!disabled && (
+            <form onSubmit={(e) => onUpdateProfile(e)}>
+              <Box py="4">
+                <FormControl id="username">
+                  <FormLabel>Username</FormLabel>
+                  <Input
+                    type="username"
+                    defaultValue={profileData["username"]}
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                  <FormHelperText></FormHelperText>
+                </FormControl>
+                <FormControl id="website">
+                  <FormLabel>Website</FormLabel>
+                  <Input
+                    type="url"
+                    defaultValue={profileData["website"]}
+                    disabled={disabled}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </FormControl>
+                <FormControl id="website">
+                  <FormLabel>Name</FormLabel>
+                  <Input
+                    type="text"
+                    defaultValue={profileData["name"]}
+                    disabled={disabled}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </FormControl>
+                <Button
+                  type="submit"
+                  colorScheme={COLOR_SCHEME}
+                  width="100%"
+                  mt={5}
+                >
+                  Edit
+                </Button>
+              </Box>
+            </form>
+          )}
         </Box>
       </Box>
     </Flex>

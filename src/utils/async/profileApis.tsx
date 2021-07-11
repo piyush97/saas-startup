@@ -23,7 +23,7 @@ export async function getProfile() {
   }
 }
 
-export async function updateProfile({ username, website, avatar_url }) {
+export async function updateProfile({ username, website, avatar_url, name }) {
   try {
     const user = supabase.auth.user();
 
@@ -31,6 +31,7 @@ export async function updateProfile({ username, website, avatar_url }) {
       id: user.id,
       username,
       website,
+      name,
       avatar_url,
       updated_at: new Date(),
     };
