@@ -23,12 +23,15 @@ import ThemeSwitch from "../ThemeSwitch";
 
 const Navbar = (props: any) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { isAuth } = useAuth();
   const toggle = () => setIsOpen(!isOpen);
+  const { isAuth } = useAuth();
+  const value = localStorage.getItem("isAuth");
+  const isLoggedIn = value !== null ? JSON.parse(value) : false;
+  // TODO: Check the above if it's wrong
   return (
     <>
-      {!isAuth ||
-        (localStorage.getItem("isAuth") === "false" && (
+      {isLoggedIn ||
+        (!isAuth && (
           <NavbarContainer {...props}>
             <Flex>
               <Image src={ONLY_LOGO} width="8" />

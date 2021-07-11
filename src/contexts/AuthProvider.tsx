@@ -38,12 +38,13 @@ export const AuthProvider = ({ children }) => {
   const onLogin = () => {
     setIsAuth(true);
     localStorage.setItem("isAuth", "true");
+    navigate("/dashboard");
   };
 
   const onLogout = () => {
     localStorage.setItem("isAuth", "false");
     setIsAuth(false);
-    navigate("/dashboard");
+    navigate("/login");
   };
 
   const value = {
