@@ -27,7 +27,7 @@ const Navbar = (props: any) => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <>
-      {isAuth ||
+      {!isAuth ||
         (localStorage.getItem("isAuth") === "false" && (
           <NavbarContainer {...props}>
             <Flex>
