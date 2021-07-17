@@ -1,14 +1,24 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { StepsStyleConfig as Steps } from "chakra-ui-steps";
 import React from "react";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { AuthProvider } from "./contexts/AuthProvider";
+import Routes from "./routes/routes";
 
 function App() {
+  const theme = extendTheme({
+    components: {
+      Steps,
+    },
+  });
   return (
-    <ChakraProvider>
-      <div className="App">
+    <ChakraProvider theme={theme}>
+      <AuthProvider>
         <Navbar />
-        <h1>Hello World</h1>
-      </div>
+        <Routes />
+        <Footer />
+      </AuthProvider>
     </ChakraProvider>
   );
 }
