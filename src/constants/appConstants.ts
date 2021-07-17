@@ -37,3 +37,6 @@ export const UNIVERSITIES = "Universities";
 export const UNIVERSITIES_ROUTE = "/universities";
 export const APPLICATIONS = "My Applications";
 export const APPLICATIONS_ROUTE = "/applications";
+
+// APIs
+export const API_URL = "http://universities.hipolabs.com/search";
