@@ -5,9 +5,14 @@ import { useQuery } from "react-query";
 import UniversityCard from "../../components/UniversityCard";
 import { API_URL } from "../../constants/appConstants";
 
-const UniversitiesContainer = () => {
+type UniversitesContainerProps = {
+  search?: String | null;
+};
+
+const UniversitiesContainer = ({ search }: UniversitesContainerProps) => {
   const { isLoading, error, data } = useQuery("universities", () => {
-    return axios.get(`${API_URL}?country=india&name=indian`);
+    console.log("SEARCH" + search);
+    return axios.get(`${API_URL}?country=india&name=${search}`);
   });
 
   return (

@@ -1,4 +1,5 @@
 import {
+  Button,
   Flex,
   IconButton,
   Input,
@@ -14,10 +15,17 @@ import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
 
-const DashboardNavbar = () => {
+const DashboardNavbar = ({ onHandleSearch }) => {
   const sidebar = useDisclosure();
+  const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInternalSearchState(e.target.value);
+  };
+  const submitSearch = () => {
+    onHandleSearch(internalSearchState);
+  };
   return (
     <Flex
       as="header"
@@ -39,7 +47,10 @@ const DashboardNavbar = () => {
       />
       <InputGroup w="96" display={{ base: "none", md: "flex" }}>
         <InputLeftElement color="gray.500" children={<FiSearch />} />
-        <Input placeholder="Search... " />
+        <Input placeholder="Search... " onChange={(e) => handleSearch(e)} />
+        <Button onClick={() => submitSearch()} ml="2">
+          Search
+        </Button>
       </InputGroup>
 
       <Flex align="center">
