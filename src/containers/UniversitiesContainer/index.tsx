@@ -10,10 +10,13 @@ type UniversitesContainerProps = {
 };
 
 const UniversitiesContainer = ({ search }: UniversitesContainerProps) => {
-  const { isLoading, error, data } = useQuery("universities", () => {
-    console.log("SEARCH" + search);
-    return axios.get(`${API_URL}?country=india&name=${search}`);
-  });
+  const { isLoading, error, data } = useQuery(
+    ["universities", { type: search, refetchAllOnWindowFocus: false }],
+    () => {
+      console.log("SEARCH" + search);
+      return axios.get(`${API_URL}?country=india&name=${search}`);
+    }
+  );
 
   return (
     <Flex width="full" align="center" justifyContent="center">
