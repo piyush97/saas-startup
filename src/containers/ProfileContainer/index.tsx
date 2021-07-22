@@ -27,19 +27,25 @@ const ProfileContainer: React.FC = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    getProfile().then((result) => {
-      setProfileData(result);
-      setUserName(result.username);
-      setName(result.name);
-      setAvatarUrl(result.avatarUrl);
-      setWebsite(result.website);
-    });
+    getProfile()
+      .then((result) => {
+        setProfileData(result);
+        setUserName(result.username);
+        setName(result.name);
+        setAvatarUrl(result.avatarUrl);
+        setWebsite(result.website);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
   }, [setProfileData]);
   const onUpdateProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateProfile({ username, avatar_url: avatarUrl, website, name }).then(() =>
-      window.location.reload()
-    );
+    updateProfile({ username, avatar_url: avatarUrl, website, name })
+      .then(() => window.location.reload())
+      .catch((error) => {
+        throw new Error(error);
+      });
   };
   const handleDisablility = () => setDisabled(!disabled);
   return (
