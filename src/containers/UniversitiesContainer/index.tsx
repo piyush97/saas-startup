@@ -6,8 +6,8 @@ import UniversityCard from "../../components/UniversityCard";
 import { API_URL } from "../../constants/appConstants";
 
 type UniversitesContainerProps = {
-  search: String;
-  onSetCountry: String;
+  search: string;
+  onSetCountry: string;
 };
 
 const UniversitiesContainer: React.FC<UniversitesContainerProps> = ({
