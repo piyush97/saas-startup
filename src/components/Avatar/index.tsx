@@ -1,8 +1,23 @@
 import { Avatar as ChakraAvatar } from "@chakra-ui/avatar";
 import { Grid, GridItem, Link, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
-export default function Avatar({ url, size, onUpload, name, website }) {
+
+type AvatarProps = {
+  url: string;
+  size: number;
+  website: string;
+  name: string;
+  onUpload: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const Avatar: React.FC<AvatarProps> = ({
+  url,
+  size,
+  onUpload,
+  name,
+  website,
+}) => {
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -112,4 +127,6 @@ export default function Avatar({ url, size, onUpload, name, website }) {
       />
     </div>
   );
-}
+};
+
+export default Avatar;
