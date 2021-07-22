@@ -72,7 +72,9 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
         size="sm"
       />
       <InputGroup w="120" display={{ base: "none", md: "flex" }}>
-        <InputLeftElement color="gray.500" children={<FiSearch />} />
+        <InputLeftElement color="gray.500">
+          <FiSearch />
+        </InputLeftElement>
         <Input placeholder={defaultSearch} onChange={handleSearch} />
         <Select w="60" onChange={countrySet}>
           {COUNTRIES.map(({ key, value, name }) => (
