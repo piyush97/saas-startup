@@ -16,8 +16,8 @@ export const HERO_CTA_TEXT = "Know More";
 /**
  * Routes
  */
-export const SIGN_UP = "/signup";
-export const LOG_IN = "/login";
+export const SIGN_UP_ROUTE = "/signup";
+export const LOG_IN_ROUTE = "/login";
 export const DASHBOARD = "/dashboard";
 
 export const PASSWORDS_DONT_MATCH = "Passwords don't match";
@@ -43,6 +43,11 @@ export const API_URL = "http://universities.hipolabs.com/search";
 
 // Button Text Contants
 export const SEARCH = "SEARCH";
+export const SIGN_OUT = "Sign Out";
+export const SIGN_UP = "Sign Up";
+export const LOG_IN = "Log In";
+export const MENU = "Menu";
+export const SIGN_UP_HELPER = "Don&apos;t have an account?";
 
 // Active Country list
 export const COUNTRIES: { key: number; name; value }[] = [

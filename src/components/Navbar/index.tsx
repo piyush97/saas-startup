@@ -14,7 +14,9 @@ import React, { useState } from "react";
 import {
   APP_NAME,
   COLOR_SCHEME,
+  MENU,
   ONLY_LOGO,
+  SIGN_OUT,
 } from "../../constants/appConstants";
 import NavbarContainer from "../../containers/NavbarContainer";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -38,7 +40,7 @@ const MenuLinks = ({ isOpen }) => {
       >
         {isAuth || localStorage.getItem("isAuth") === "true" ? (
           <Button colorScheme={COLOR_SCHEME} onClick={signOut}>
-            Sign Out
+            {SIGN_OUT}
           </Button>
         ) : (
           menu.map((edge) => (
@@ -124,7 +126,7 @@ const MenuIcon = ({ colorMode }) => (
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>Menu</title>
+    <title>{MENU}</title>
     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
   </svg>
 );

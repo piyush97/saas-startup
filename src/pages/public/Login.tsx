@@ -13,7 +13,10 @@ import React, { useState } from "react";
 import {
   COLOR_SCHEME,
   EMAIL_PLACEHOLDER,
+  LOG_IN,
   SIGN_UP,
+  SIGN_UP_HELPER,
+  SIGN_UP_ROUTE,
 } from "../../constants/appConstants";
 import { useAuth } from "../../contexts/AuthProvider";
 
@@ -60,7 +63,8 @@ const Login: React.FC<RouteComponentProps> = () => {
               />
             </FormControl>
             <p>
-              Don&apos;t have an account? <Link to={SIGN_UP}>Sign Up</Link>
+              {SIGN_UP_HELPER}
+              <Link to={SIGN_UP_ROUTE}>{SIGN_UP}</Link>
             </p>
             <Button
               width="full"
@@ -68,7 +72,7 @@ const Login: React.FC<RouteComponentProps> = () => {
               type="submit"
               colorScheme={COLOR_SCHEME}
             >
-              Log In
+              {LOG_IN}
             </Button>
             {error && <Text color="red"> {error.message}</Text>}
           </form>
