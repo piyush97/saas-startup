@@ -7,7 +7,13 @@ export default function Avatar({ url, size, onUpload, name, website }) {
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    if (url) downloadImage(url);
+    if (url) {
+      try {
+        downloadImage(url);
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
   }, [url]);
 
   async function downloadImage(path) {
