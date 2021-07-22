@@ -14,7 +14,7 @@ import {
   LINKEDIN_LINK,
   TWITTER_LINK,
 } from "../../constants/appConstants";
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <Box
       as="footer"
