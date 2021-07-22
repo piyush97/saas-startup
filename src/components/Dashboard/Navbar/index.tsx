@@ -35,6 +35,9 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
   const submitSearch = () => {
     onHandleSearch(internalSearchState);
   };
+  const countrySet = (e) => {
+    onSetCountry(e.target.value);
+  };
 
   return (
     <Flex
@@ -57,15 +60,15 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
       />
       <InputGroup w="120" display={{ base: "none", md: "flex" }}>
         <InputLeftElement color="gray.500" children={<FiSearch />} />
-        <Input placeholder={defaultSearch} onChange={(e) => handleSearch(e)} />
-        <Select w="60" onChange={(e) => onSetCountry(e.target.value)}>
+        <Input placeholder={defaultSearch} onChange={handleSearch} />
+        <Select w="60" onChange={countrySet}>
           {COUNTRIES.map(({ key, value, name }) => (
             <option key={key} value={value}>
               {name}
             </option>
           ))}
         </Select>
-        <Button onClick={() => submitSearch()} ml="2" px="12">
+        <Button onClick={submitSearch} ml="2" px="12">
           {SEARCH}
         </Button>
       </InputGroup>
