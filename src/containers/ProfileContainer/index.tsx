@@ -52,7 +52,7 @@ const ProfileContainer: React.FC = () => {
     <Flex width="full" align="center" justifyContent="center">
       <Box p={2}>
         <Tooltip label="Edit Profile" aria-label="A tooltip">
-          <Box style={{ float: "right" }} py={4} px={4}>
+          <Box float="right" py={4} px={4}>
             <FaPencilAlt onClick={() => handleDisablility()} cursor="pointer" />
           </Box>
         </Tooltip>

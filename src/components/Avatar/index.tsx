@@ -80,8 +80,8 @@ export default function Avatar({ url, size, onUpload, name, website }) {
                 src={avatarUrl}
                 alt={`Avatar for ${name}`}
                 _hover={{ bg: "gray.600" }}
-                className="avatar image"
-                style={{ height: size, width: size }}
+                height={size}
+                width={size}
               />
             ) : (
               <ChakraAvatar name={name} _hover={{ bg: "gray.600" }} />
