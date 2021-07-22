@@ -1,8 +1,19 @@
 import { navigate } from "@reach/router";
+import { User } from "@supabase/supabase-js";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
-const AuthContext = createContext(null);
+type AuthContextProps = {
+  signUp: (data: any) => Promise<void>;
+  signIn: (data: any) => Promise<void>;
+  signOut: () => Promise<void>;
+  getUserDetails: () => Promise<User>;
+  user: User;
+  error: Error;
+  isAuth: boolean;
+};
+
+const AuthContext = createContext<AuthContextProps>(null);
 type AuthProviderProps = {
   children: JSX.Element[];
 };
@@ -59,9 +70,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             setError(result.error);
           })
           .catch((error) => {
+            setError(error);
             throw new Error("Error" + error);
           });
       } catch (error) {
+        setError(error);
         throw new Error("Error" + error);
       }
     },
@@ -73,13 +86,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             result && result.error ? setError(result.error) : onLogin();
           })
           .catch((error) => {
+            setError(error);
             throw new Error("Error" + error);
           });
       } catch (error) {
+        setError(error);
         throw new Error("Error" + error);
       }
     },
-    signOut: async () => await supabase.auth.signOut().then(() => onLogout()),
+    signOut: async () =>
+      await supabase.auth
+        .signOut()
+        .then(() => onLogout())
+        .catch((error) => setError(error)),
     getUserDetails: async () => await supabase.auth.user(),
     user,
     error,
