@@ -9,7 +9,11 @@ export default function Avatar({ url, size, onUpload, name, website }) {
   useEffect(() => {
     if (url) {
       try {
-        downloadImage(url);
+        downloadImage(url)
+          .then(() => {})
+          .catch((error) => {
+            throw new Error(error);
+          });
       } catch (error) {
         throw new Error(error);
       }
