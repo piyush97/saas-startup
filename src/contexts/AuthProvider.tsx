@@ -3,12 +3,15 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
 const AuthContext = createContext(null);
+type AuthProviderProps = {
+  children: JSX.Element[];
+};
 /**
  * Auth Provider
  *
  * @param {*} { children }
  */
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState(null);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(null);
