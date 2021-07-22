@@ -40,3 +40,13 @@ export const APPLICATIONS_ROUTE = "/applications";
 
 // APIs
 export const API_URL = "http://universities.hipolabs.com/search";
+
+// Button Text Contants
+export const SEARCH = "SEARCH";
+
+// Active Country list
+export const COUNTRIES: { key: number; name; value }[] = [
+  { key: 0, name: "India", value: "india" },
+  { key: 1, name: "Canada", value: "canada" },
+  { key: 2, name: "Usa", value: "usa" },
+];

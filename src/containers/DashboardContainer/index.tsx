@@ -6,14 +6,25 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { ReactNode } from "react";
 import DashboardNavbar from "../../components/Dashboard/Navbar";
 import DashboardStage from "../../components/Dashboard/Stage";
 import SidebarContainer from "../SidebarContainer";
 
-export default function DashboardContainer({ content }) {
-  const sidebar = useDisclosure();
+type DashboardContainerProps = {
+  content: ReactNode;
+  searchContent?: (string) => void;
+  onSetCountry?: (string) => void;
+  defaultSearch?: string;
+};
 
+const DashboardContainer: React.FC<DashboardContainerProps> = ({
+  content,
+  defaultSearch,
+  searchContent,
+  onSetCountry,
+}) => {
+  const sidebar = useDisclosure();
   return (
     <Box
       as="section"
@@ -32,9 +43,14 @@ export default function DashboardContainer({ content }) {
         </DrawerContent>
       </Drawer>
       <Box ml={{ base: 0, md: 60 }} transition=".6s ease">
-        <DashboardNavbar />
+        <DashboardNavbar
+          onHandleSearch={searchContent}
+          onSetCountry={onSetCountry}
+          defaultSearch={defaultSearch}
+        />
         <DashboardStage content={content} />
       </Box>
     </Box>
   );
-}
+};
+export default DashboardContainer;

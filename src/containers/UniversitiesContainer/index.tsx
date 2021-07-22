@@ -5,10 +5,24 @@ import { useQuery } from "react-query";
 import UniversityCard from "../../components/UniversityCard";
 import { API_URL } from "../../constants/appConstants";
 
-const UniversitiesContainer = () => {
-  const { isLoading, error, data } = useQuery("universities", () => {
-    return axios.get(`${API_URL}?country=india&name=indian`);
-  });
+type UniversitesContainerProps = {
+  search: string;
+  onSetCountry: string;
+};
+
+const UniversitiesContainer: React.FC<UniversitesContainerProps> = ({
+  search,
+  onSetCountry,
+}) => {
+  const { isLoading, error, data } = useQuery(
+    [
+      "universities",
+      { type: [search, onSetCountry], refetchAllOnWindowFocus: false },
+    ],
+    () => {
+      return axios.get(`${API_URL}?country=${onSetCountry}&name=${search}`);
+    }
+  );
 
   return (
     <Flex width="full" align="center" justifyContent="center">
