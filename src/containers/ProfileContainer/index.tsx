@@ -41,7 +41,7 @@ const ProfileContainer: React.FC = () => {
   }, [setProfileData]);
   const onUpdateProfile = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateProfile({ username, avatar_url: avatarUrl, website, name })
+    updateProfile({ username, avatarUrl, website, name })
       .then(() => window.location.reload())
       .catch((error) => {
         throw new Error(error);

@@ -27,9 +27,9 @@ export async function getProfile(): Promise<ProfileType> {
 export async function updateProfile({
   username,
   website,
-  avatar_url,
+  avatarUrl,
   name,
-}): Promise<void> {
+}: ProfileType): Promise<void> {
   try {
     const user = supabase.auth.user();
 
@@ -38,7 +38,7 @@ export async function updateProfile({
       username,
       website,
       name,
-      avatar_url,
+      avatar_url: avatarUrl,
       updated_at: new Date(),
     };
 
