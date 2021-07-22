@@ -1,51 +1,51 @@
-export const APP_NAME: string = "Succour";
-export const LOGO_WHITE: string =
+export const APP_NAME = "Succour";
+export const LOGO_WHITE =
   "https://i.ibb.co/0t22LX1/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
-export const LOGO_DARK: string =
+export const LOGO_DARK =
   "https://i.ibb.co/fpKMhhj/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo-3.png";
-export const ONLY_LOGO: string =
+export const ONLY_LOGO =
   "https://i.ibb.co/QMg8DpQ/Copy-of-Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
-export const LINKEDIN_LINK: string = "https://linkedin.com/in/piyush24";
-export const GITHUB_LINK: string = "https://github.com/piyush97";
-export const TWITTER_LINK: string = "https://twitter.com/PiyushMehtas";
-export const HERO_TITLE: string =
+export const LINKEDIN_LINK = "https://linkedin.com/in/piyush24";
+export const GITHUB_LINK = "https://github.com/piyush97";
+export const TWITTER_LINK = "https://twitter.com/PiyushMehtas";
+export const HERO_TITLE =
   "Solving the issue which students have, one step at a time";
-export const HERO_SUBTEXT: string = "Solving needs since 2021";
-export const CTA_IMAGE_URL: string = "https://picsum.photos/800/600";
-export const HERO_CTA_TEXT: string = "Know More";
+export const HERO_SUBTEXT = "Solving needs since 2021";
+export const CTA_IMAGE_URL = "https://picsum.photos/800/600";
+export const HERO_CTA_TEXT = "Know More";
 /**
  * Routes
  */
-export const SIGN_UP: string = "/signup";
-export const LOG_IN: string = "/login";
-export const DASHBOARD: string = "/dashboard";
+export const SIGN_UP = "/signup";
+export const LOG_IN = "/login";
+export const DASHBOARD = "/dashboard";
 
-export const PASSWORDS_DONT_MATCH: string = "Passwords don't match";
-export const COLOR_SCHEME: string = "purple";
-export const SIDEBAR_THEME_DARK: string = "purple.700";
-export const SIDEBAR_THEME_LIGHT: string = "purple.100";
-export const EMAIL_PLACEHOLDER: string = "user@succour.xyz";
+export const PASSWORDS_DONT_MATCH = "Passwords don't match";
+export const COLOR_SCHEME = "purple";
+export const SIDEBAR_THEME_DARK = "purple.700";
+export const SIDEBAR_THEME_LIGHT = "purple.100";
+export const EMAIL_PLACEHOLDER = "user@succour.xyz";
 
 // Menu bar items
-export const HOME: string = "Home";
-export const HOME_ROUTE: string = "/dashboard";
-export const PROFILE: string = "My Profile";
-export const PROFILE_ROUTE: string = "/profile";
-export const COURSES: string = "Courses";
-export const COURSES_ROUTE: string = "/courses";
-export const UNIVERSITIES: string = "Universities";
-export const UNIVERSITIES_ROUTE: string = "/universities";
-export const APPLICATIONS: string = "My Applications";
-export const APPLICATIONS_ROUTE: string = "/applications";
+export const HOME = "Home";
+export const HOME_ROUTE = "/dashboard";
+export const PROFILE = "My Profile";
+export const PROFILE_ROUTE = "/profile";
+export const COURSES = "Courses";
+export const COURSES_ROUTE = "/courses";
+export const UNIVERSITIES = "Universities";
+export const UNIVERSITIES_ROUTE = "/universities";
+export const APPLICATIONS = "My Applications";
+export const APPLICATIONS_ROUTE = "/applications";
 
 // APIs
-export const API_URL: string = "http://universities.hipolabs.com/search";
+export const API_URL = "http://universities.hipolabs.com/search";
 
 // Button Text Contants
-export const SEARCH: string = "SEARCH";
+export const SEARCH = "SEARCH";
 
 // Active Country list
-export const COUNTRIES: { key: number; name: string; value: string }[] = [
+export const COUNTRIES: { key: number; name; value }[] = [
   { key: 0, name: "India", value: "india" },
   { key: 1, name: "Canada", value: "canada" },
   { key: 2, name: "Usa", value: "usa" },
