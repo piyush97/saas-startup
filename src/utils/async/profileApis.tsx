@@ -6,7 +6,7 @@ export async function getProfile(): Promise<ProfileType> {
   try {
     const user = supabase.auth.user();
 
-    let { data, error, status } = await supabase
+    const { data, error, status } = await supabase
       .from("profiles")
       .select(PROFILE_DATA)
       .eq("id", user.id)
@@ -42,7 +42,7 @@ export async function updateProfile({
       updated_at: new Date(),
     };
 
-    let { error } = await supabase.from("profiles").upsert(updates, {
+    const { error } = await supabase.from("profiles").upsert(updates, {
       returning: "minimal", // Don't return the value after inserting
     });
 
