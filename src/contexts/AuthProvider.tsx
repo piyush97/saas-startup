@@ -80,11 +80,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           })
           .catch((error) => {
             setError(error);
-            throw new Error("Error" + error);
+            throw new Error("Error" + String(error));
           });
       } catch (error) {
         setError(error);
-        throw new Error("Error" + error);
+        throw new Error("Error" + String(error));
       }
     },
     signIn: async (data) => {
@@ -96,11 +96,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           })
           .catch((error) => {
             setError(error);
-            throw new Error("Error" + error);
+            throw new Error("Error" + String(error));
           });
       } catch (error) {
         setError(error);
-        throw new Error("Error" + error);
+        throw new Error("Error" + String(error));
       }
     },
     signOut: async () =>
