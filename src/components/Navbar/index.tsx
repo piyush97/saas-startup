@@ -21,33 +21,6 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const toggle = (): void => setIsOpen(!isOpen);
-  const { isAuth } = useAuth();
-  const value = localStorage.getItem("isAuth");
-  const isLoggedIn = value !== null ? JSON.parse(value) : false;
-  // TODO: Check the above if it's wrong
-  return (
-    <>
-      {isLoggedIn ||
-        (!isAuth && (
-          <NavbarContainer>
-            <Flex>
-              <Image src={ONLY_LOGO} width="8" />
-              <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
-                {/* We'll create a custom file to use all the constants [Best Practice] */}
-                {APP_NAME}
-              </Heading>
-            </Flex>
-            <MenuLinks isOpen={isOpen} />
-            <MenuToggle toggle={toggle} isOpen={isOpen} />
-          </NavbarContainer>
-        ))}
-    </>
-  );
-};
-
 const MenuLinks = ({ isOpen }) => {
   const { signOut, isAuth } = useAuth();
 
@@ -83,6 +56,47 @@ const MenuLinks = ({ isOpen }) => {
     </Box>
   );
 };
+
+const MenuToggle = ({ toggle, isOpen }) => {
+  const { colorMode } = useColorMode();
+  return (
+    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
+      {isOpen ? (
+        <CloseIcon colorMode={colorMode} />
+      ) : (
+        <MenuIcon colorMode={colorMode} />
+      )}
+    </Box>
+  );
+};
+
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const toggle = (): void => setIsOpen(!isOpen);
+  const { isAuth } = useAuth();
+  const value = localStorage.getItem("isAuth");
+  const isLoggedIn = value !== null ? JSON.parse(value) : false;
+  // TODO: Check the above if it's wrong
+  return (
+    <>
+      {isLoggedIn ||
+        (!isAuth && (
+          <NavbarContainer>
+            <Flex>
+              <Image src={ONLY_LOGO} width="8" />
+              <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
+                {/* We'll create a custom file to use all the constants [Best Practice] */}
+                {APP_NAME}
+              </Heading>
+            </Flex>
+            <MenuLinks isOpen={isOpen} />
+            <MenuToggle toggle={toggle} isOpen={isOpen} />
+          </NavbarContainer>
+        ))}
+    </>
+  );
+};
+
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
     <Link
@@ -103,18 +117,6 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   );
 };
 
-const MenuToggle = ({ toggle, isOpen }) => {
-  const { colorMode } = useColorMode();
-  return (
-    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
-      {isOpen ? (
-        <CloseIcon colorMode={colorMode} />
-      ) : (
-        <MenuIcon colorMode={colorMode} />
-      )}
-    </Box>
-  );
-};
 const MenuIcon = ({ colorMode }) => (
   <svg
     fill={colorMode === "light" ? "black" : "white"}
