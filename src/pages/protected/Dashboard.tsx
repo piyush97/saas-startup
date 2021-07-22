@@ -5,7 +5,7 @@ import DashboardHomeContainer from "../../containers/DashboardHomeContainer";
 import { useAuth } from "../../contexts/AuthProvider";
 import Login from "../public/Login";
 
-const Dashboard = (props: RouteComponentProps) => {
+const Dashboard: React.FC<RouteComponentProps> = () => {
   const { isAuth } = useAuth();
   return isAuth ? (
     <DashboardContainer content={<DashboardHomeContainer />} />

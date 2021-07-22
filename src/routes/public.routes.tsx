@@ -5,7 +5,7 @@ import Home from "../pages/public/Home";
 import Login from "../pages/public/Login";
 import SignUp from "../pages/public/SignUp";
 
-const PublicRoutes = () => {
+const PublicRoutes: React.FC = () => {
   return (
     <Router>
       <Home path="/" />

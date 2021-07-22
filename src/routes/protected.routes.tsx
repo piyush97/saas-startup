@@ -9,7 +9,7 @@ import Dashboard from "../pages/protected/Dashboard";
 import Profile from "../pages/protected/Profile";
 import Universities from "../pages/protected/Universities";
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes: React.FC = () => {
   return (
     <Router>
       <Dashboard path={DASHBOARD} />

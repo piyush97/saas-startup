@@ -3,7 +3,7 @@ import React from "react";
 import DashboardContainer from "../../containers/DashboardContainer";
 import ProfileContainer from "../../containers/ProfileContainer";
 
-const Profile = (props: RouteComponentProps) => {
+const Profile: React.FC<RouteComponentProps> = () => {
   return <DashboardContainer content={<ProfileContainer />} />;
 };
 

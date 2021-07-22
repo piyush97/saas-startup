@@ -17,7 +17,7 @@ import {
 } from "../../constants/appConstants";
 import { useAuth } from "../../contexts/AuthProvider";
 
-const Login = (props: RouteComponentProps) => {
+const Login: React.FC<RouteComponentProps> = () => {
   const { signIn, error } = useAuth();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
