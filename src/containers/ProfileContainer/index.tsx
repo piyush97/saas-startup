@@ -72,7 +72,7 @@ const ProfileContainer: React.FC = () => {
             name={profileData["name"]}
             url={profileData["avatar_url"]}
             website={profileData["website"]}
-            size={60}
+            size={55}
             onUpload={setAvatarUrl}
           />
           <Text as="i">{profileData["username"]}</Text>
