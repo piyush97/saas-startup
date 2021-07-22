@@ -39,6 +39,7 @@ const UniversitiesContainer: React.FC<UniversitesContainerProps> = ({
           {data.data.map(
             ({ domains, web_pages, name, country, alpha_two_code }) => (
               <UniversityCard
+                key={name}
                 name={name}
                 country={country}
                 code={alpha_two_code}

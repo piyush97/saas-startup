@@ -1,4 +1,3 @@
-import { StarIcon } from "@chakra-ui/icons";
 import { Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "@reach/router";
 
@@ -43,14 +42,15 @@ const UniversityCard = ({ name, country, code, web_pages, domain }) => {
         </Box>
 
         <Box d="flex" mt="2" alignItems="center">
-          {Array(5)
+          {/* To be implemented later on */}
+          {/* {Array(5)
             .fill("")
-            .map((_, i) => (
+            .map((_) => (
               <StarIcon
                 key={i}
                 color={i < property.rating ? "teal.500" : "gray.300"}
               />
-            ))}
+            ))} */}
           <Box as="span" ml="2" color="gray.600" fontSize="sm">
             {property.reviewCount} reviews
           </Box>
