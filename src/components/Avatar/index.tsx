@@ -59,7 +59,7 @@ const Avatar: React.FC<AvatarProps> = ({
       }
 
       const file = event.target.files[0];
-      const fileExt = file.name.split(".").pop();
+      const fileExt: string = file.name.split(".").pop();
       const fileName = `${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
