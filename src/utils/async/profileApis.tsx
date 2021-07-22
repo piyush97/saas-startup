@@ -17,7 +17,6 @@ export async function getProfile(): Promise<ProfileType> {
     }
 
     if (data) {
-      console.log("DATA", data);
       return data;
     }
   } catch (error) {

@@ -18,7 +18,7 @@ import Avatar from "../../components/Avatar/index";
 import { COLOR_SCHEME } from "../../constants/appConstants";
 import { getProfile, updateProfile } from "../../utils/async/profileApis";
 
-const ProfileContainer = () => {
+const ProfileContainer: React.FC = () => {
   const [profileData, setProfileData] = useState({});
   const [disabled, setDisabled] = useState(true);
   const [username, setUserName] = useState("");
@@ -67,9 +67,7 @@ const ProfileContainer = () => {
             url={profileData["avatar_url"]}
             website={profileData["website"]}
             size={60}
-            onUpload={(url) => {
-              setAvatarUrl(url);
-            }}
+            onUpload={setAvatarUrl}
           />
           <Text as="i">{profileData["username"]}</Text>
           <Divider py="2" />
