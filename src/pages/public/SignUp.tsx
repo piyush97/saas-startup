@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import {
   COLOR_SCHEME,
   EMAIL_PLACEHOLDER,
-  LOG_IN,
+  LOG_IN_ROUTE,
   PASSWORDS_DONT_MATCH,
 } from "../../constants/appConstants";
 import { useAuth } from "../../contexts/AuthProvider";
@@ -75,7 +75,7 @@ const SignUp: React.FC<RouteComponentProps> = () => {
               />
             </FormControl>
             <p>
-              Have an account already? <Link to={LOG_IN}>Log In</Link>
+              Have an account already? <Link to={LOG_IN_ROUTE}>Log In</Link>
             </p>
             <Button
               width="full"
