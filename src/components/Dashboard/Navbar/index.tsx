@@ -17,8 +17,8 @@ import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
 type DashboardNavbarProps = {
-  onHandleSearch: Function;
-  onSetCountry: Function;
+  onHandleSearch: (string) => void;
+  onSetCountry: (string) => void;
   defaultSearch: string;
 };
 const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
