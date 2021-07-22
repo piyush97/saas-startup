@@ -112,6 +112,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-export const useAuth = () => {
-  return useContext(AuthContext);
+export const useAuth = (): AuthContextProps => {
+  return useContext<AuthContextProps>(AuthContext);
 };
