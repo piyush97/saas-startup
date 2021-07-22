@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import DashboardContainer from "../../containers/DashboardContainer";
 import UniversitiesContainer from "../../containers/UniversitiesContainer";
-const Universities = (props: RouteComponentProps) => {
+
+const Universities: React.FC<RouteComponentProps> = () => {
   const queryClient = new QueryClient();
   const [search, setSearch] = useState("Indian Institute of Technology");
   const [country, setCountry] = useState("india");
