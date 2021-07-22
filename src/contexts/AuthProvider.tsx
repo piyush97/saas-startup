@@ -4,8 +4,12 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 
 type AuthContextProps = {
-  signUp: (data: any) => Promise<void>;
-  signIn: (data: any) => Promise<void>;
+  signUp: (data: {
+    email: string;
+    password: string;
+    name?: string;
+  }) => Promise<void>;
+  signIn: (data: { email: string; password: string }) => Promise<void>;
   signOut: () => Promise<
     | {
         error: Error;
