@@ -10,7 +10,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { Link } from "@reach/router";
-import React from "react";
+import React, { useState } from "react";
 import {
   APP_NAME,
   COLOR_SCHEME,
@@ -22,8 +22,8 @@ import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const toggle = (): void => setIsOpen(!isOpen);
   const { isAuth } = useAuth();
   const value = localStorage.getItem("isAuth");
   const isLoggedIn = value !== null ? JSON.parse(value) : false;
