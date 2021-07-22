@@ -11,7 +11,7 @@ type AuthProviderProps = {
  *
  * @param {*} { children }
  */
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setloading] = useState(true);
   const [error, setError] = useState(null);
