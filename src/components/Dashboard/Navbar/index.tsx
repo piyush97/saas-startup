@@ -29,15 +29,28 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
   const sidebar = useDisclosure();
   const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /**
+   * Handles Search input change
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e
+   */
+  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setInternalSearchState(e.target.value);
-  };
-  const submitSearch = () => {
+  }
+  /**
+   * Submits the search
+   *
+   */
+  function submitSearch() {
     onHandleSearch(internalSearchState);
-  };
-  const countrySet = (e) => {
+  }
+  /**
+   * Handles country selection
+   *
+   */
+  function countrySet(e) {
     onSetCountry(e.target.value);
-  };
+  }
 
   return (
     <Flex
