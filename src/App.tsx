@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import { AuthProvider } from "./contexts/AuthProvider";
 import Routes from "./routes/routes";
 
-function App() {
+const App: React.FC = () => {
   const theme = extendTheme({
     components: {
       Steps,
@@ -21,6 +21,6 @@ function App() {
       </AuthProvider>
     </ChakraProvider>
   );
-}
+};
 
 export default App;
