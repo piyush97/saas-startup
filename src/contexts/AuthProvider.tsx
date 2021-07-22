@@ -90,6 +90,6 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-export const useAuth: () => null = () => {
+export const useAuth = () => {
   return useContext(AuthContext);
 };
