@@ -6,12 +6,15 @@ import UniversitiesContainer from "../../containers/UniversitiesContainer";
 const Universities = (props: RouteComponentProps) => {
   const queryClient = new QueryClient();
   const [search, setSearch] = useState("");
-
+  const [country, setCountry] = useState("india");
   return (
     <QueryClientProvider client={queryClient}>
       <DashboardContainer
-        content={<UniversitiesContainer search={search} />}
+        content={
+          <UniversitiesContainer search={search} onSetCountry={country} />
+        }
         searchContent={setSearch}
+        onSetCountry={setCountry}
       />
     </QueryClientProvider>
   );

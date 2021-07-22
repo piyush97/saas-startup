@@ -14,11 +14,13 @@ import SidebarContainer from "../SidebarContainer";
 type DashboardContainerProps = {
   content: ReactNode;
   searchContent?: Function;
+  onSetCountry?: Function;
 };
 
 export default function DashboardContainer({
   content,
   searchContent,
+  onSetCountry,
 }: DashboardContainerProps) {
   const sidebar = useDisclosure();
   return (
@@ -39,7 +41,10 @@ export default function DashboardContainer({
         </DrawerContent>
       </Drawer>
       <Box ml={{ base: 0, md: 60 }} transition=".6s ease">
-        <DashboardNavbar onHandleSearch={searchContent} />
+        <DashboardNavbar
+          onHandleSearch={searchContent}
+          onSetCountry={onSetCountry}
+        />
         <DashboardStage content={content} />
       </Box>
     </Box>

@@ -5,6 +5,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Select,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -15,17 +16,17 @@ import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
 
-const DashboardNavbar = ({ onHandleSearch }) => {
+const DashboardNavbar = ({ onHandleSearch, onSetCountry }) => {
   const sidebar = useDisclosure();
   const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInternalSearchState(e.target.value);
   };
   const submitSearch = () => {
     onHandleSearch(internalSearchState);
   };
+
   return (
     <Flex
       as="header"
@@ -45,10 +46,14 @@ const DashboardNavbar = ({ onHandleSearch }) => {
         icon={<FiMenu />}
         size="sm"
       />
-      <InputGroup w="96" display={{ base: "none", md: "flex" }}>
+      <InputGroup w="120" display={{ base: "none", md: "flex" }}>
         <InputLeftElement color="gray.500" children={<FiSearch />} />
         <Input placeholder="Search... " onChange={(e) => handleSearch(e)} />
-        <Button onClick={() => submitSearch()} ml="2">
+        <Select w="60" onChange={(e) => onSetCountry(e.target.value)}>
+          <option value="india">India</option>
+          <option value="canada">Canada</option>
+        </Select>
+        <Button onClick={() => submitSearch()} ml="2" px="12">
           Search
         </Button>
       </InputGroup>

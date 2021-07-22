@@ -7,14 +7,21 @@ import { API_URL } from "../../constants/appConstants";
 
 type UniversitesContainerProps = {
   search?: String | null;
+  onSetCountry?: String | null;
 };
 
-const UniversitiesContainer = ({ search }: UniversitesContainerProps) => {
+const UniversitiesContainer = ({
+  search,
+  onSetCountry,
+}: UniversitesContainerProps) => {
   const { isLoading, error, data } = useQuery(
-    ["universities", { type: search, refetchAllOnWindowFocus: false }],
+    [
+      "universities",
+      { type: [search, onSetCountry], refetchAllOnWindowFocus: false },
+    ],
     () => {
       console.log("SEARCH" + search);
-      return axios.get(`${API_URL}?country=india&name=${search}`);
+      return axios.get(`${API_URL}?country=${onSetCountry}&name=${search}`);
     }
   );
 
