@@ -21,7 +21,7 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggle = (): void => setIsOpen(!isOpen);
   const { isAuth } = useAuth();

@@ -1,7 +1,21 @@
 import { Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "@reach/router";
 
-const UniversityCard = ({ name, country, code, web_pages, domain }) => {
+type UniversityProps = {
+  name: string;
+  country: string;
+  code: string;
+  web_pages: [string];
+  domain: [string];
+};
+
+const UniversityCard: React.FC<UniversityProps> = ({
+  name,
+  country,
+  code,
+  web_pages,
+  domain,
+}) => {
   const property = {
     imageUrl: "https://picsum.photos/600/400",
     imageAlt: "Just a Random Image for Now",
