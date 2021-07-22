@@ -20,7 +20,6 @@ const UniversitiesContainer = ({
       { type: [search, onSetCountry], refetchAllOnWindowFocus: false },
     ],
     () => {
-      console.log("SEARCH" + search);
       return axios.get(`${API_URL}?country=${onSetCountry}&name=${search}`);
     }
   );
