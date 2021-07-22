@@ -15,7 +15,7 @@ const DashboardHomeContainer: React.FC = () => {
         <Step
           label={label}
           key={label}
-          onClick={() => nextStep()}
+          onClick={nextStep}
           description={description}
         >
           {content}

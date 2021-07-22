@@ -64,7 +64,7 @@ const MenuLinks = ({ isOpen }) => {
         pt={[4, 4, 0, 0]}
       >
         {isAuth || localStorage.getItem("isAuth") === "true" ? (
-          <Button colorScheme={COLOR_SCHEME} onClick={() => signOut()}>
+          <Button colorScheme={COLOR_SCHEME} onClick={signOut}>
             Sign Out
           </Button>
         ) : (

@@ -94,7 +94,7 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
           bg="transparent"
           aria-label="notifications"
           icon={<FaBell />}
-          onClick={() => {}}
+          onClick={function () {}}
         />
         <AvatarMenu signOut={signOut} />
       </Flex>

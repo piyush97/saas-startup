@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { navigate } from "@reach/router";
 import React from "react";
+import { PROFILE_ROUTE } from "../../../constants/appConstants";
 
 type AvatarMenuProps = {
   signOut: () => void;
@@ -18,6 +19,11 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ signOut }) => {
   function onSignOutClick() {
     signOut();
   }
+
+  function goToProfile() {
+    navigate(PROFILE_ROUTE);
+  }
+
   return (
     <Menu>
       <MenuButton
@@ -27,10 +33,10 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ signOut }) => {
         name="piyush97"
         src="https://avatars.githubusercontent.com/piyush97"
         cursor="pointer"
-       />
+      />
       <MenuList>
         <MenuGroup title="Profile">
-          <MenuItem onClick={() => navigate("/profile")}>My Profile</MenuItem>
+          <MenuItem onClick={goToProfile}>My Profile</MenuItem>
           <MenuItem>Payments </MenuItem>
         </MenuGroup>
         <MenuDivider />
