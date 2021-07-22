@@ -27,7 +27,7 @@ const AvatarMenu: React.FC<AvatarMenuProps> = ({ signOut }) => {
         name="piyush97"
         src="https://avatars.githubusercontent.com/piyush97"
         cursor="pointer"
-      ></MenuButton>
+       />
       <MenuList>
         <MenuGroup title="Profile">
           <MenuItem onClick={() => navigate("/profile")}>My Profile</MenuItem>
