@@ -22,10 +22,14 @@ const Login: React.FC<RouteComponentProps> = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
-  const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
+  function onChangeSetPassword(event) {
+    setpassword(event.target.value);
+  }
+
+  function loginUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     signIn({ email, password });
-  };
+  }
 
   return (
     <Flex width="full" align="center" justifyContent="center">
@@ -46,7 +50,7 @@ const Login: React.FC<RouteComponentProps> = () => {
             <FormControl mt={6}>
               <FormLabel>password</FormLabel>
               <Input
-                onChange={(e) => setpassword(e.target.value)}
+                onChange={onChangeSetPassword}
                 type="password"
                 placeholder="*********"
               />
