@@ -21,20 +21,6 @@ const Avatar: React.FC<AvatarProps> = ({
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
 
-  useEffect(() => {
-    if (url) {
-      try {
-        downloadImage(url)
-          .then(() => {})
-          .catch((error) => {
-            throw new Error(error);
-          });
-      } catch (error) {
-        throw new Error(error);
-      }
-    }
-  }, [url]);
-
   async function downloadImage(path): Promise<void> {
     try {
       const { data, error } = await supabase.storage
@@ -49,6 +35,20 @@ const Avatar: React.FC<AvatarProps> = ({
       throw new Error(error.message);
     }
   }
+
+  useEffect(() => {
+    if (url) {
+      try {
+        downloadImage(url)
+          .then(() => {})
+          .catch((error) => {
+            throw new Error(error);
+          });
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+  }, [url]);
 
   async function uploadAvatar(event) {
     try {
