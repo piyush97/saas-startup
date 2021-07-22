@@ -44,7 +44,7 @@ const MenuLinks = ({ isOpen }) => {
           </Button>
         ) : (
           menu.map((edge) => (
-            <MenuItem to={edge.link} key={edge.key} isLast={edge.isLast}>
+            <MenuItem to={edge.link} key={edge.key}>
               {edge.isButton ? (
                 <Button colorScheme={COLOR_SCHEME}>{edge.name}</Button>
               ) : (
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
   );
 };
 
-const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
+const MenuItem = ({ children, to = "/", ...rest }) => {
   return (
     <Link
       to={to}

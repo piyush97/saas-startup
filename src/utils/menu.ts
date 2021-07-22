@@ -1,10 +1,9 @@
-import { LOG_IN, SIGN_UP } from "./../constants/appConstants";
+import { LOG_IN_ROUTE, SIGN_UP_ROUTE } from "./../constants/appConstants";
 export const menu = [
   {
     name: "Home",
     key: 1,
     link: "/",
-    isLast: false,
     dependsOnLogin: false,
     isButton: false,
   },
@@ -12,16 +11,14 @@ export const menu = [
   {
     name: "Login",
     key: 3,
-    link: LOG_IN,
-    isLast: false,
+    link: LOG_IN_ROUTE,
     dependsOnLogin: true,
     isButton: false,
   },
   {
     name: "Sign Up",
     key: 4,
-    link: SIGN_UP,
-    isLast: false,
+    link: SIGN_UP_ROUTE,
     dependsOnLogin: true,
     isButton: true,
   },
