@@ -16,7 +16,7 @@ export default function Avatar({ url, size, onUpload, name, website }) {
     }
   }, [url]);
 
-  async function downloadImage(path) {
+  async function downloadImage(path): Promise<void> {
     try {
       const { data, error } = await supabase.storage
         .from("avatars")
