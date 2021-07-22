@@ -3,7 +3,7 @@ import React from "react";
 import { COLOR_SCHEME } from "../../constants/appConstants";
 import STEPS from "../../utils/steps";
 
-const DashboardHomeContainer = () => {
+const DashboardHomeContainer: React.FC = () => {
   // TODO: Connect backend with this component
   //eslint-disable-next-line
   const { nextStep, prevStep, reset, activeStep } = useSteps({

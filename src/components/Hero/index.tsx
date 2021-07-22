@@ -2,7 +2,22 @@ import { Box, Button, Flex, Heading, Image, Stack } from "@chakra-ui/react";
 import React from "react";
 import { COLOR_SCHEME } from "../../constants/appConstants";
 
-const Hero = ({ title, subText, ctaText, image, imageText, ...rest }) => {
+type HeroProps = {
+  title: string;
+  subText: string;
+  ctaText: string;
+  image: string;
+  imageText: string;
+};
+
+const Hero: React.FC<HeroProps> = ({
+  title,
+  subText,
+  ctaText,
+  image,
+  imageText,
+  ...rest
+}) => {
   return (
     <Flex
       align="center"

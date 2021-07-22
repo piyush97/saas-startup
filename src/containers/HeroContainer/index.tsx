@@ -7,7 +7,7 @@ import {
   HERO_TITLE,
 } from "../../constants/appConstants";
 
-const HeroContainer = () => {
+const HeroContainer: React.FC = () => {
   return (
     <Hero
       title={HERO_TITLE}
