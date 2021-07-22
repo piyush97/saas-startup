@@ -21,7 +21,7 @@ import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
 
-const Navbar = (props: any) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const { isAuth } = useAuth();
@@ -32,7 +32,7 @@ const Navbar = (props: any) => {
     <>
       {isLoggedIn ||
         (!isAuth && (
-          <NavbarContainer {...props}>
+          <NavbarContainer>
             <Flex>
               <Image src={ONLY_LOGO} width="8" />
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">

@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 
-const NavbarContainer = ({ props, children }) => {
+const NavbarContainer = ({ children }) => {
   return (
     <Flex
       as="nav"
@@ -14,7 +14,6 @@ const NavbarContainer = ({ props, children }) => {
       boxShadow="sm"
       rounded="md"
       bg={["transparent"]}
-      {...props}
     >
       {children}
     </Flex>
