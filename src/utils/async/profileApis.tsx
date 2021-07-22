@@ -1,7 +1,8 @@
 import { PROFILE_DATA } from "../../constants/apiConstants";
 import { supabase } from "../../supabaseClient";
+import { ProfileType } from "../../types/profile";
 
-export async function getProfile() {
+export async function getProfile(): Promise<ProfileType> {
   try {
     const user = supabase.auth.user();
 
@@ -23,7 +24,12 @@ export async function getProfile() {
   }
 }
 
-export async function updateProfile({ username, website, avatar_url, name }) {
+export async function updateProfile({
+  username,
+  website,
+  avatar_url,
+  name,
+}): Promise<void> {
   try {
     const user = supabase.auth.user();
 
