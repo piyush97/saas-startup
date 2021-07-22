@@ -1,5 +1,7 @@
 # Code for Youtube Tutorial Series
 
+[![DeepSource](https://deepsource.io/gh/piyush97/saas-startup.svg/?label=resolved+issues&show_trend=true&token=Crc2en4qE-iD3b9rqLYKUEsm)](https://deepsource.io/gh/piyush97/saas-startup/?ref=repository-badge)
+
 Please find the video's code by branch name
 
 Based on <a href="https://www.youtube.com/playlist?list=PLpkrMokklzr17jNBSLGiag2QNb6cSSwOh">My Youtube Course</a>
