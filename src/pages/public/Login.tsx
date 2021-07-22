@@ -52,7 +52,7 @@ const Login: React.FC<RouteComponentProps> = () => {
               />
             </FormControl>
             <p>
-              Don't have an account? <Link to={SIGN_UP}>Sign Up</Link>
+              Don&apos;t have an account? <Link to={SIGN_UP}>Sign Up</Link>
             </p>
             <Button
               width="full"
