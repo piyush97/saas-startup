@@ -5,7 +5,7 @@ import DashboardContainer from "../../containers/DashboardContainer";
 import UniversitiesContainer from "../../containers/UniversitiesContainer";
 const Universities = (props: RouteComponentProps) => {
   const queryClient = new QueryClient();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Indian Institute of Technology");
   const [country, setCountry] = useState("india");
   return (
     <QueryClientProvider client={queryClient}>
@@ -14,6 +14,8 @@ const Universities = (props: RouteComponentProps) => {
           <UniversitiesContainer search={search} onSetCountry={country} />
         }
         searchContent={setSearch}
+        defaultSearch={search}
+        defaultCountry={country}
         onSetCountry={setCountry}
       />
     </QueryClientProvider>

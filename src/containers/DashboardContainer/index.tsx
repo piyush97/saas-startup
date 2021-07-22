@@ -15,10 +15,14 @@ type DashboardContainerProps = {
   content: ReactNode;
   searchContent?: Function;
   onSetCountry?: Function;
+  defaultSearch?: string;
+  defaultCountry?: string;
 };
 
 export default function DashboardContainer({
   content,
+  defaultSearch,
+  defaultCountry,
   searchContent,
   onSetCountry,
 }: DashboardContainerProps) {
@@ -44,6 +48,7 @@ export default function DashboardContainer({
         <DashboardNavbar
           onHandleSearch={searchContent}
           onSetCountry={onSetCountry}
+          defaultSearch={defaultSearch}
         />
         <DashboardStage content={content} />
       </Box>

@@ -12,11 +12,12 @@ import {
 import React from "react";
 import { FaBell } from "react-icons/fa";
 import { FiMenu, FiSearch } from "react-icons/fi";
+import { COUNTRIES, SEARCH } from "../../../constants/appConstants";
 import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
 
-const DashboardNavbar = ({ onHandleSearch, onSetCountry }) => {
+const DashboardNavbar = ({ onHandleSearch, onSetCountry, defaultSearch }) => {
   const sidebar = useDisclosure();
   const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();
@@ -48,13 +49,16 @@ const DashboardNavbar = ({ onHandleSearch, onSetCountry }) => {
       />
       <InputGroup w="120" display={{ base: "none", md: "flex" }}>
         <InputLeftElement color="gray.500" children={<FiSearch />} />
-        <Input placeholder="Search... " onChange={(e) => handleSearch(e)} />
+        <Input placeholder={defaultSearch} onChange={(e) => handleSearch(e)} />
         <Select w="60" onChange={(e) => onSetCountry(e.target.value)}>
-          <option value="india">India</option>
-          <option value="canada">Canada</option>
+          {COUNTRIES.map(({ key, value, name }) => (
+            <option key={key} value={value}>
+              {name}
+            </option>
+          ))}
         </Select>
         <Button onClick={() => submitSearch()} ml="2" px="12">
-          Search
+          {SEARCH}
         </Button>
       </InputGroup>
 
