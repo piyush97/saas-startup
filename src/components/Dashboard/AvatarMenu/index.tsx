@@ -10,7 +10,14 @@ import {
 import { navigate } from "@reach/router";
 import React from "react";
 
-const AvatarMenu = ({ signOut }) => {
+type AvatarMenuProps = {
+  signOut: () => void;
+};
+
+const AvatarMenu: React.FC<AvatarMenuProps> = ({ signOut }) => {
+  function onSignOutClick() {
+    signOut();
+  }
   return (
     <Menu>
       <MenuButton
@@ -32,7 +39,7 @@ const AvatarMenu = ({ signOut }) => {
           <MenuItem>FAQ</MenuItem>
         </MenuGroup>
         <MenuDivider />
-        <MenuItem cursor="pointer" onClick={() => signOut()}>
+        <MenuItem cursor="pointer" onClick={onSignOutClick}>
           Log Out
         </MenuItem>
       </MenuList>

@@ -6,7 +6,12 @@ import { supabase } from "../supabaseClient";
 type AuthContextProps = {
   signUp: (data: any) => Promise<void>;
   signIn: (data: any) => Promise<void>;
-  signOut: () => Promise<void>;
+  signOut: () => Promise<
+    | {
+        error: Error;
+      }
+    | unknown
+  >;
   getUserDetails: () => Promise<User>;
   user: User;
   error: Error;

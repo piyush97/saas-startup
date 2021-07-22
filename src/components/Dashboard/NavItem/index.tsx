@@ -1,14 +1,18 @@
 import { Flex, Icon, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "@reach/router";
-const NavItem = (props) => {
-  const { icon, children, isActive, url, ...rest } = props;
+import { IconType } from "react-icons";
+type NavItemProps = {
+  icon: IconType;
+  to: string;
+};
+const NavItem: React.FC<NavItemProps> = ({ icon, children, to, ...rest }) => {
   return (
     <Flex
       align="center"
       px="4"
       mx="2"
       as={Link}
-      to={url}
+      to={to}
       rounded="md"
       py="4"
       cursor="pointer"
