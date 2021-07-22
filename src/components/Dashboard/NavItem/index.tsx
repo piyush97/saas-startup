@@ -1,11 +1,19 @@
 import { Flex, Icon, useColorModeValue } from "@chakra-ui/react";
-import { Link } from "@reach/router";
+import { Link, LinkGetProps } from "@reach/router";
 import { IconType } from "react-icons";
 type NavItemProps = {
   icon: IconType;
   to: string;
 };
 const NavItem: React.FC<NavItemProps> = ({ icon, children, to, ...rest }) => {
+  function styleActive(props: LinkGetProps) {
+    return {
+      style: {
+        fontWeight: props.isCurrent ? "bold" : "normal",
+        background: props.isCurrent ? "rgba(0, 0, 0, 0.2)" : "transparent",
+      },
+    };
+  }
   return (
     <Flex
       align="center"
@@ -22,14 +30,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, children, to, ...rest }) => {
         color: "whiteAlpha.900",
       }}
       role="group"
-      getProps={({ isCurrent }) => {
-        return {
-          style: {
-            fontWeight: isCurrent ? "bold" : "normal",
-            background: isCurrent ? "rgba(0, 0, 0, 0.2)" : "transparent",
-          },
-        };
-      }}
+      getProps={styleActive}
       transition=".15s ease"
       {...rest}
     >
