@@ -15,7 +15,6 @@ const Universities = (props: RouteComponentProps) => {
         }
         searchContent={setSearch}
         defaultSearch={search}
-        defaultCountry={country}
         onSetCountry={setCountry}
       />
     </QueryClientProvider>

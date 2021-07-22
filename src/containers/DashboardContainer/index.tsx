@@ -16,16 +16,14 @@ type DashboardContainerProps = {
   searchContent?: Function;
   onSetCountry?: Function;
   defaultSearch?: string;
-  defaultCountry?: string;
 };
 
-export default function DashboardContainer({
+const DashboardContainer: React.FC<DashboardContainerProps> = ({
   content,
   defaultSearch,
-  defaultCountry,
   searchContent,
   onSetCountry,
-}: DashboardContainerProps) {
+}) => {
   const sidebar = useDisclosure();
   return (
     <Box
@@ -54,4 +52,5 @@ export default function DashboardContainer({
       </Box>
     </Box>
   );
-}
+};
+export default DashboardContainer;

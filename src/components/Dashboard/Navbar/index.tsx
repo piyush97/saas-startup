@@ -16,8 +16,16 @@ import { COUNTRIES, SEARCH } from "../../../constants/appConstants";
 import { useAuth } from "../../../contexts/AuthProvider";
 import ThemeSwitch from "../../ThemeSwitch";
 import AvatarMenu from "../AvatarMenu";
-
-const DashboardNavbar = ({ onHandleSearch, onSetCountry, defaultSearch }) => {
+type DashboardNavbarProps = {
+  onHandleSearch: Function;
+  onSetCountry: Function;
+  defaultSearch: string;
+};
+const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
+  onHandleSearch,
+  onSetCountry,
+  defaultSearch,
+}) => {
   const sidebar = useDisclosure();
   const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();

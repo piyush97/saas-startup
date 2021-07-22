@@ -10,10 +10,10 @@ type UniversitesContainerProps = {
   onSetCountry?: String | null;
 };
 
-const UniversitiesContainer = ({
+const UniversitiesContainer: React.FC<UniversitesContainerProps> = ({
   search,
   onSetCountry,
-}: UniversitesContainerProps) => {
+}) => {
   const { isLoading, error, data } = useQuery(
     [
       "universities",
