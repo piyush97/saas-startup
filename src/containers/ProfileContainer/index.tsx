@@ -87,7 +87,7 @@ const ProfileContainer: React.FC = () => {
                     defaultValue={profileData["username"]}
                     onChange={(e) => setUserName(e.target.value)}
                   />
-                  <FormHelperText></FormHelperText>
+                  <FormHelperText />
                 </FormControl>
                 <FormControl id="website">
                   <FormLabel>Website</FormLabel>
