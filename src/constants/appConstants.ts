@@ -1,4 +1,5 @@
 export const APP_NAME = "Succour";
+export const APP_LANGUAGE = "en";
 export const LOGO_WHITE =
   "https://i.ibb.co/0t22LX1/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LOGO_DARK =
