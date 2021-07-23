@@ -1,5 +1,9 @@
+import { SEOProps } from "./../types/SEOType.d";
+
 export const APP_NAME = "Succour";
 export const APP_LANGUAGE = "en";
+export const APP_LOGO_SQUARE =
+  "https://i.ibb.co/StLPQnv/Copy-of-Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LOGO_WHITE =
   "https://i.ibb.co/0t22LX1/Copy-of-Blue-Up-Arrow-Finance-Corporate-Logo.png";
 export const LOGO_DARK =
@@ -51,8 +55,34 @@ export const MENU = "Menu";
 export const SIGN_UP_HELPER = "Don't have an account? ";
 
 // Active Country list
-export const COUNTRIES: { key: number; name; value }[] = [
+export const COUNTRIES: { key: number; name: any; value: any }[] = [
   { key: 0, name: "India", value: "india" },
   { key: 1, name: "Canada", value: "canada" },
   { key: 2, name: "Usa", value: "usa" },
+];
+/**
+ * SEO Content for Pages
+ *
+ * @type {SEOProps[]} */
+export const SEO_CONTENT: SEOProps[] = [
+  {
+    // Home Page
+    title: HOME,
+    description: HERO_TITLE,
+    content: HERO_TITLE,
+    icon57: APP_LOGO_SQUARE,
+    icon72: APP_LOGO_SQUARE,
+    ogDescription: HERO_TITLE,
+    ogImage: LOGO_WHITE,
+  },
+  {
+    // TODO: Other Pages
+    title: "TODO",
+    description: HERO_TITLE,
+    content: HERO_TITLE,
+    icon57: APP_LOGO_SQUARE,
+    icon72: APP_LOGO_SQUARE,
+    ogDescription: HERO_TITLE,
+    ogImage: LOGO_WHITE,
+  },
 ];

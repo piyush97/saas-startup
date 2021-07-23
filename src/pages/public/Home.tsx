@@ -1,23 +1,23 @@
 import { RouteComponentProps } from "@reach/router";
 import React from "react";
+import { SEO_CONTENT } from "../../constants/appConstants";
 import HeroContainer from "../../containers/HeroContainer";
 import SEO from "../../utils/SEO";
 /**
- * Test Response for demo only
- * DONOT Merge
- * TODO: Fix this SEO component
- * @return {JSX.Element}
+ * Home Page
+ *
+ * @returns {React.FC}
  */
 const Home: React.FC<RouteComponentProps> = () => {
   return (
     <SEO
-      title="test"
-      description="test"
-      content="test"
-      icon57="test"
-      icon72="test"
-      ogDescription="test"
-      ogImage="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png"
+      title={SEO_CONTENT[0].title}
+      description={SEO_CONTENT[0].description}
+      content={SEO_CONTENT[0].content}
+      icon57={SEO_CONTENT[0].icon57}
+      icon72={SEO_CONTENT[0].icon72}
+      ogDescription={SEO_CONTENT[0].ogDescription}
+      ogImage={SEO_CONTENT[0].ogImage}
     >
       <HeroContainer />
     </SEO>
