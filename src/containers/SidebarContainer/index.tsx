@@ -1,4 +1,10 @@
-import { Box, Flex, Image, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  ResponsiveValue,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import NavItem from "../../components/Dashboard/NavItem";
 import {
   LOGO_DARK,
@@ -8,7 +14,16 @@ import {
 } from "../../constants/appConstants";
 import NavbarMenu from "../../utils/navbarMenu";
 
-const SidebarContainer = (props) => {
+type SidebarContainerProps = {
+  display?: ResponsiveValue<string>;
+  w?: string;
+  borderRight?: string;
+};
+const SidebarContainer: React.FC<SidebarContainerProps> = ({
+  display,
+  w,
+  borderRight,
+}) => {
   return (
     <Box
       as="nav"
@@ -24,7 +39,7 @@ const SidebarContainer = (props) => {
       borderColor="blackAlpha.300"
       borderRightWidth="1px"
       w="60"
-      {...props}
+      display={display}
     >
       <Flex px="4" py="5" align="center">
         <Image src={useColorModeValue(LOGO_WHITE, LOGO_DARK)} />
