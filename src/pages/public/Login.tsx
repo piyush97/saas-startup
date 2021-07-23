@@ -31,11 +31,9 @@ const Login: React.FC<RouteComponentProps> = () => {
 
   function loginUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    signIn({ email, password })
-      .then(() => {})
-      .catch((error) => {
-        throw new Error("Error" + String(error));
-      });
+    signIn({ email, password }).catch((error) => {
+      throw new Error("Error" + String(error));
+    });
   }
 
   return (

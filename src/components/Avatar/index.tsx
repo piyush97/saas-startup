@@ -39,11 +39,9 @@ const Avatar: React.FC<AvatarProps> = ({
   useEffect(() => {
     if (url) {
       try {
-        downloadImage(url)
-          .then(() => {})
-          .catch((error) => {
-            throw new Error(error);
-          });
+        downloadImage(url).catch((error) => {
+          throw new Error(error);
+        });
       } catch (error) {
         throw new Error(error);
       }
