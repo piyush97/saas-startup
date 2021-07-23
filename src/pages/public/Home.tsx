@@ -3,11 +3,7 @@ import React from "react";
 import HeroContainer from "../../containers/HeroContainer";
 
 const Home: React.FC<RouteComponentProps> = () => {
-  return (
-    <>
-      <HeroContainer />
-    </>
-  );
+  return <HeroContainer />;
 };
 
 export default Home;
