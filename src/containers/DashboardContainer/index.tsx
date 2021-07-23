@@ -13,8 +13,8 @@ import SidebarContainer from "../SidebarContainer";
 
 type DashboardContainerProps = {
   content: ReactNode;
-  searchContent?: (string) => void;
-  onSetCountry?: (string) => void;
+  searchContent?: (search: string) => void;
+  onSetCountry?: (country: string) => void;
   defaultSearch?: string;
 };
 
