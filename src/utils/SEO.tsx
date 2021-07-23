@@ -56,7 +56,7 @@ const SEO: React.FC<SEOProps> = ({
   return (
     <>
       <Helmet
-        encodeSpecialCharacters={true}
+        encodeSpecialCharacters
         titleTemplate={`${APP_NAME} - %s`}
         defaultTitle={HOME}
       >
