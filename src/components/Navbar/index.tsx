@@ -99,11 +99,10 @@ const Navbar: React.FC = () => {
   );
 };
 
-const MenuItem = ({ children, to = "/", ...rest }) => {
+const MenuItem = ({ children, to = "/" }) => {
   return (
     <Link
       to={to}
-      {...rest}
       getProps={({ isCurrent }) => {
         return {
           style: {
@@ -112,9 +111,7 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
         };
       }}
     >
-      <Text display="block" {...rest}>
-        {children}
-      </Text>
+      <Text display="block">{children}</Text>
     </Link>
   );
 };

@@ -47,7 +47,7 @@ export const SIGN_OUT = "Sign Out";
 export const SIGN_UP = "Sign Up";
 export const LOG_IN = "Log In";
 export const MENU = "Menu";
-export const SIGN_UP_HELPER = "Don&apos;t have an account?";
+export const SIGN_UP_HELPER = "Don't have an account? ";
 
 // Active Country list
 export const COUNTRIES: { key: number; name; value }[] = [
