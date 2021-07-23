@@ -19,11 +19,7 @@ type SidebarContainerProps = {
   w?: string;
   borderRight?: string;
 };
-const SidebarContainer: React.FC<SidebarContainerProps> = ({
-  display,
-  w,
-  borderRight,
-}) => {
+const SidebarContainer: React.FC<SidebarContainerProps> = (props) => {
   return (
     <Box
       as="nav"
@@ -39,7 +35,7 @@ const SidebarContainer: React.FC<SidebarContainerProps> = ({
       borderColor="blackAlpha.300"
       borderRightWidth="1px"
       w="60"
-      display={display}
+      {...props}
     >
       <Flex px="4" py="5" align="center">
         <Image src={useColorModeValue(LOGO_WHITE, LOGO_DARK)} />
