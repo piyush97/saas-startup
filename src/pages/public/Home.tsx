@@ -6,7 +6,7 @@ import SEO from "../../utils/SEO";
  * Test Response for demo only
  * DONOT Merge
  * TODO: Fix this SEO component
- * @return {*}
+ * @return {JSX.Element}
  */
 const Home: React.FC<RouteComponentProps> = () => {
   return (
