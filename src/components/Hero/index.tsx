@@ -16,7 +16,6 @@ const Hero: React.FC<HeroProps> = ({
   ctaText,
   image,
   imageText,
-  ...rest
 }) => {
   return (
     <Flex
@@ -26,7 +25,6 @@ const Hero: React.FC<HeroProps> = ({
       minH="70vh"
       px={8}
       mb={16}
-      {...rest}
     >
       <Stack
         spacing={4}
