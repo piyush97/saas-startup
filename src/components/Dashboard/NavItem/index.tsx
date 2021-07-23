@@ -5,7 +5,7 @@ type NavItemProps = {
   icon: IconType;
   to: string;
 };
-const NavItem: React.FC<NavItemProps> = ({ icon, children, to, ...rest }) => {
+const NavItem: React.FC<NavItemProps> = ({ icon, children, to }) => {
   function styleActive(props: LinkGetProps) {
     return {
       style: {
@@ -32,7 +32,6 @@ const NavItem: React.FC<NavItemProps> = ({ icon, children, to, ...rest }) => {
       role="group"
       getProps={styleActive}
       transition=".15s ease"
-      {...rest}
     >
       {icon && (
         <Icon
