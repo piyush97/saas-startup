@@ -24,7 +24,7 @@ const DashboardContainer: React.FC<DashboardContainerProps> = ({
   searchContent,
   onSetCountry,
 }) => {
-  const sidebar = useDisclosure();
+  const { isOpen, onClose } = useDisclosure();
   return (
     <Box
       as="section"
@@ -32,11 +32,7 @@ const DashboardContainer: React.FC<DashboardContainerProps> = ({
       minH="100vh"
     >
       <SidebarContainer display={{ base: "none", md: "unset" }} />
-      <Drawer
-        isOpen={sidebar.isOpen}
-        onClose={sidebar.onClose}
-        placement="left"
-      >
+      <Drawer isOpen={isOpen} onClose={onClose} placement="left">
         <DrawerOverlay />
         <DrawerContent>
           <SidebarContainer w="full" borderRight="none" />

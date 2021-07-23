@@ -26,7 +26,7 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
   onSetCountry,
   defaultSearch,
 }) => {
-  const sidebar = useDisclosure();
+  const { onOpen } = useDisclosure();
   const [internalSearchState, setInternalSearchState] = React.useState("");
   const { signOut } = useAuth();
   /**
@@ -67,7 +67,7 @@ const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
       <IconButton
         aria-label="Menu"
         display={{ base: "inline-flex", md: "none" }}
-        onClick={sidebar.onOpen}
+        onClick={onOpen}
         icon={<FiMenu />}
         size="sm"
       />
