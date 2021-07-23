@@ -6,6 +6,11 @@ import Navbar from "./components/Navbar";
 import { AuthProvider } from "./contexts/AuthProvider";
 import Routes from "./routes/routes";
 
+/**
+ * App
+ *
+ * @returns Our React App
+ */
 const App: React.FC = () => {
   const theme = extendTheme({
     components: {

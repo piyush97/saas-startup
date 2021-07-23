@@ -14,6 +14,11 @@ import {
   LINKEDIN_LINK,
   TWITTER_LINK,
 } from "../../constants/appConstants";
+/**
+ * Footer Component
+ *
+ * @returns {React.FC}
+ */
 const Footer: React.FC = () => {
   return (
     <Box

@@ -19,16 +19,28 @@ import {
   SIGN_UP_ROUTE,
 } from "../../constants/appConstants";
 import { useAuth } from "../../contexts/AuthProvider";
-
+/**
+ * Login page for users to sign in
+ *
+ * @returns {React.FC}
+ */
 const Login: React.FC<RouteComponentProps> = () => {
   const { signIn, error } = useAuth();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  /**
+   * onChangeSetPassword - Callback for password input
+   *
+   * @param {*} event
+   */
   function onChangeSetPassword(event) {
     setpassword(event.target.value);
   }
-
+  /**
+   * loginUser - Callback for login button
+   *
+   * @param {React.FormEvent<HTMLFormElement>} event
+   */
   function loginUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     signIn({ email, password }).catch((error) => {

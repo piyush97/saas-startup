@@ -21,6 +21,16 @@ type DashboardNavbarProps = {
   onSetCountry: (string) => void;
   defaultSearch: string;
 };
+/**
+ * Dashboard's Navbar component
+ *
+ * @param {DashboardNavbarProps} {
+ *   onHandleSearch,
+ *   onSetCountry,
+ *   defaultSearch,
+ * }
+ * @returns {React.FC}
+ */
 const DashboardNavbar: React.FC<DashboardNavbarProps> = ({
   onHandleSearch,
   onSetCountry,

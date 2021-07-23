@@ -1,6 +1,6 @@
 import { Avatar as ChakraAvatar } from "@chakra-ui/avatar";
 import { Grid, GridItem, Link, Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { default as React, useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 
 type AvatarProps = {
@@ -10,7 +10,18 @@ type AvatarProps = {
   name: string;
   onUpload: React.Dispatch<React.SetStateAction<string>>;
 };
-
+/**
+ * Avatar component for User's Profile
+ *
+ * @param {AvatarProps} {
+ *   url,
+ *   size,
+ *   onUpload,
+ *   name,
+ *   website,
+ * }
+ * @returns {React.FunctionComponent<P>}
+ */
 const Avatar: React.FC<AvatarProps> = ({
   url,
   size,

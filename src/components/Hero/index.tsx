@@ -9,7 +9,18 @@ type HeroProps = {
   image: string;
   imageText: string;
 };
-
+/**
+ * Hero Component
+ *
+ * @param {HeroProps} {
+ *   title,
+ *   subText,
+ *   ctaText,
+ *   image,
+ *   imageText,
+ * }
+ * @returns {React.FC}
+ */
 const Hero: React.FC<HeroProps> = ({
   title,
   subText,

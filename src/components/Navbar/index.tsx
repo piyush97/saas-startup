@@ -2,6 +2,7 @@ import { CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
+  ColorMode,
   Flex,
   Heading,
   Image,
@@ -22,8 +23,17 @@ import NavbarContainer from "../../containers/NavbarContainer";
 import { useAuth } from "../../contexts/AuthProvider";
 import { menu } from "../../utils/menu";
 import ThemeSwitch from "../ThemeSwitch";
+type MenuLinksProps = {
+  isOpen: boolean;
+};
 
-const MenuLinks = ({ isOpen }) => {
+/**
+ * Menu Links component; renders the links for the navbar
+ *
+ * @param {MenuLinksProps} { isOpen }
+ * @returns {React.FC}
+ */
+const MenuLinks: React.FC<MenuLinksProps> = ({ isOpen }) => {
   const { signOut, isAuth } = useAuth();
 
   return (
@@ -59,7 +69,18 @@ const MenuLinks = ({ isOpen }) => {
   );
 };
 
-const MenuToggle = ({ toggle, isOpen }) => {
+type MenuToggleProps = {
+  toggle: () => void;
+  isOpen: boolean;
+};
+
+/**
+ * MenuToggle component; renders the toggle button for the menu
+ *
+ * @param {MenuToggleProps} { toggle, isOpen }
+ * @returns {React.FC}
+ */
+const MenuToggle: React.FC<MenuToggleProps> = ({ toggle, isOpen }) => {
   const { colorMode } = useColorMode();
   return (
     <Box display={{ base: "block", md: "none" }} onClick={toggle}>
@@ -71,14 +92,17 @@ const MenuToggle = ({ toggle, isOpen }) => {
     </Box>
   );
 };
-
+/**
+ * Renders the navigation bar.
+ *
+ * @returns {React.FC}
+ */
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggle = (): void => setIsOpen(!isOpen);
   const { isAuth } = useAuth();
   const value = localStorage.getItem("isAuth");
   const isLoggedIn = value !== null ? JSON.parse(value) : false;
-  // TODO: Check the above if it's wrong
   return (
     <>
       {isLoggedIn ||
@@ -87,7 +111,6 @@ const Navbar: React.FC = () => {
             <Flex>
               <Image src={ONLY_LOGO} width="8" />
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
-                {/* We'll create a custom file to use all the constants [Best Practice] */}
                 {APP_NAME}
               </Heading>
             </Flex>
@@ -99,7 +122,17 @@ const Navbar: React.FC = () => {
   );
 };
 
-const MenuItem = ({ children, to = "/" }) => {
+type MenuItemProps = {
+  to: string;
+};
+
+/**
+ * MenuItem component; renders a link for the menu
+ *
+ * @param {MenuItemProps} { children, to = "/" }
+ * @returns {React.FC}
+ */
+const MenuItem: React.FC<MenuItemProps> = ({ children, to = "/" }) => {
   return (
     <Link
       to={to}
@@ -115,8 +148,16 @@ const MenuItem = ({ children, to = "/" }) => {
     </Link>
   );
 };
-
-const MenuIcon = ({ colorMode }) => (
+type MenuIconProps = {
+  colorMode: ColorMode;
+};
+/**
+ * MenuIcon component; renders the icon for the menu
+ *
+ * @param {*} { colorMode }
+ * @returns {React.FC}
+ */
+const MenuIcon: React.FC<MenuIconProps> = ({ colorMode }) => (
   <svg
     fill={colorMode === "light" ? "black" : "white"}
     width="24px"

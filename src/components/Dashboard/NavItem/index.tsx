@@ -5,6 +5,12 @@ type NavItemProps = {
   icon: IconType;
   to: string;
 };
+/**
+ * NavItem component which is used to render a single NavItem on Navbar (Dashboard)
+ *
+ * @param {NavItemProps} { icon, children, to }
+ * @returns {React.FC}
+ */
 const NavItem: React.FC<NavItemProps> = ({ icon, children, to }) => {
   function styleActive(props: LinkGetProps) {
     return {

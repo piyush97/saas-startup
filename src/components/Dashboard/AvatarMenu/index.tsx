@@ -14,12 +14,26 @@ import { PROFILE_ROUTE } from "../../../constants/appConstants";
 type AvatarMenuProps = {
   signOut: () => void;
 };
-
+/**
+ * Avatar Menu component
+ *
+ * @param {AvatarMenuProps} {
+ *   signOut,
+ * }
+ * @returns {React.FunctionComponent<P>}
+ */
 const AvatarMenu: React.FC<AvatarMenuProps> = ({ signOut }) => {
+  /**
+   * Calls on Sign out button click
+   *
+   */
   function onSignOutClick() {
     signOut();
   }
-
+  /**
+   * Navigates to user's profile page
+   *
+   */
   function goToProfile() {
     navigate(PROFILE_ROUTE);
   }
