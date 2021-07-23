@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   Flex,
   Image,
   ResponsiveValue,
@@ -14,7 +15,7 @@ import {
 } from "../../constants/appConstants";
 import NavbarMenu from "../../utils/navbarMenu";
 
-type SidebarContainerProps = {
+type SidebarContainerProps = BoxProps & {
   display?: ResponsiveValue<string>;
   w?: string;
   borderRight?: string;
