@@ -8,7 +8,7 @@ afterEach(cleanup);
 describe("Navbar", () => {
   it("Navbar Content Not Logged In and is Healthy", () => {
     const { getByText, getByTestId } = render(
-      <AuthProvider>
+      <AuthProvider testUser={null}>
         <Navbar />
       </AuthProvider>
     );
@@ -28,5 +28,23 @@ describe("Navbar", () => {
     expect(navbarMenu.length).toBe(3);
     // and a Theme switch
     expect(getByTestId("theme-switch")).toBeTruthy();
+  });
+  it("Navbar Content  Logged In and is Healthy", async () => {
+    localStorage.setItem("isAuth", "true");
+    const { findAllByText } = render(
+      <AuthProvider>
+        <Navbar />
+      </AuthProvider>
+    );
+    expect(await findAllByText("Home")).toBeFalsy();
+    // Navbar Menu currently contains None and Navbar will not render if logged in
+    // expect(findAllByText("Home")).toBeFalsy();
+    // expect(findByText("Login")).toBeFalsy();
+    // expect(findByText("Sign Up")).toBeFalsy();
+
+    // // Title is the app name
+    // expect(findByText(APP_NAME)).toBeFalsy();
+    // // and a Theme switch
+    // expect(findByTestId("theme-switch")).toBeFalsy();
   });
 });

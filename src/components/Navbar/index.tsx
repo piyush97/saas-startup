@@ -10,7 +10,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import { Link } from "@reach/router";
+import { Link, useLocation } from "@reach/router";
 import React, { useState } from "react";
 import {
   APP_NAME,
@@ -103,26 +103,47 @@ const Navbar: React.FC = () => {
   const { isAuth } = useAuth();
   const value = localStorage.getItem("isAuth");
   const isLoggedIn = value !== null ? JSON.parse(value) : false;
+  const location = useLocation();
+  console.log(
+    location.pathname === "login" ||
+      location.pathname === "/" ||
+      location.pathname === "sign"
+  );
   return (
     <>
-      {isLoggedIn ||
-        (!isAuth && (
-          <NavbarContainer>
-            <Flex>
-              <Image
-                src={ONLY_LOGO}
-                width="8"
-                alt={`Logo for ${APP_NAME}`}
-                data-testid="logo"
-              />
-              <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
-                {APP_NAME}
-              </Heading>
-            </Flex>
-            <MenuLinks isOpen={isOpen} />
-            <MenuToggle toggle={toggle} isOpen={isOpen} />
-          </NavbarContainer>
-        ))}
+      {isLoggedIn && !isAuth ? (
+        <NavbarContainer>
+          <Flex>
+            <Image
+              src={ONLY_LOGO}
+              width="8"
+              alt={`Logo for ${APP_NAME}`}
+              data-testid="logo"
+            />
+            <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
+              {APP_NAME}
+            </Heading>
+          </Flex>
+          <MenuLinks isOpen={isOpen} />
+          <MenuToggle toggle={toggle} isOpen={isOpen} />
+        </NavbarContainer>
+      ) : (
+        <NavbarContainer>
+          <Flex>
+            <Image
+              src={ONLY_LOGO}
+              width="8"
+              alt={`Logo for ${APP_NAME}`}
+              data-testid="logo"
+            />
+            <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
+              {APP_NAME}
+            </Heading>
+          </Flex>
+          <MenuLinks isOpen={isOpen} />
+          <MenuToggle toggle={toggle} isOpen={isOpen} />
+        </NavbarContainer>
+      )}
     </>
   );
 };
