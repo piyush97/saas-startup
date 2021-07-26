@@ -33,6 +33,7 @@ export const EMAIL_PLACEHOLDER = "user@succour.xyz";
 
 // Menu bar items
 export const HOME = "Home";
+export const ROOT_ROUTE = "/";
 export const HOME_ROUTE = "/dashboard";
 export const PROFILE = "My Profile";
 export const PROFILE_ROUTE = "/profile";

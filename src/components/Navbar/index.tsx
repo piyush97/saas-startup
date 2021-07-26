@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
     <>
       {isLoggedIn && !isAuth ? (
         <NavbarContainer>
-          <Flex>
+          <Flex data-testid="navbar">
             <Image
               src={ONLY_LOGO}
               width="8"
@@ -128,7 +128,7 @@ const Navbar: React.FC = () => {
       ) : (
         isVisible && (
           <NavbarContainer>
-            <Flex>
+            <Flex data-testid="navbar">
               <Image
                 src={ONLY_LOGO}
                 width="8"
