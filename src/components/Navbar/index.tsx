@@ -109,7 +109,12 @@ const Navbar: React.FC = () => {
         (!isAuth && (
           <NavbarContainer>
             <Flex>
-              <Image src={ONLY_LOGO} width="8" />
+              <Image
+                src={ONLY_LOGO}
+                width="8"
+                alt={`Logo for ${APP_NAME}`}
+                data-testid="logo"
+              />
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
                 {APP_NAME}
               </Heading>

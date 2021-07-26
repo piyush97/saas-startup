@@ -7,6 +7,7 @@ const ThemeSwitch: React.FC = () => {
   return (
     <IconButton
       bg="transparent"
+      data-testid="theme-switch"
       aria-label="toggle theme"
       icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
       onClick={toggleColorMode}

@@ -24,7 +24,7 @@ type AuthContextProps = {
 
 const AuthContext = createContext<AuthContextProps>(null);
 type AuthProviderProps = {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 };
 /**
  * Auth Provider
