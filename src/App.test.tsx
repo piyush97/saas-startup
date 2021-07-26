@@ -1,1 +1,0 @@
-test("renders App", () => {});
