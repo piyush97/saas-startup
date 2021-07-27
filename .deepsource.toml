@@ -12,7 +12,3 @@ enabled = true
 
   [analyzers.meta]
   plugins = ["react"]
-
-[[transformers]]
-name = "prettier"
-enabled = true
