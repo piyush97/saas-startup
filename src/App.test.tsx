@@ -1,9 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { createClient } from "@supabase/supabase-js";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const URL = "http://localhost:3000";
+const KEY = "some.fake.key";
+
+createClient(URL, KEY);
+
+test("Build to succeed", () => {
+  // Basic test to ensure TS build is working.
+  expect(true).toEqual(true);
 });

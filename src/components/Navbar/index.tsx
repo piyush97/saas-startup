@@ -103,13 +103,38 @@ const Navbar: React.FC = () => {
   const { isAuth } = useAuth();
   const value = localStorage.getItem("isAuth");
   const isLoggedIn = value !== null ? JSON.parse(value) : false;
+  const isVisible: boolean =
+    window.location.pathname === "/login" ||
+    window.location.pathname === "/" ||
+    window.location.pathname === "/signup";
   return (
     <>
-      {isLoggedIn ||
-        (!isAuth && (
+      {isLoggedIn && !isAuth ? (
+        <NavbarContainer>
+          <Flex data-testid="navbar">
+            <Image
+              src={ONLY_LOGO}
+              width="8"
+              alt={`Logo for ${APP_NAME}`}
+              data-testid="logo"
+            />
+            <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
+              {APP_NAME}
+            </Heading>
+          </Flex>
+          <MenuLinks isOpen={isOpen} />
+          <MenuToggle toggle={toggle} isOpen={isOpen} />
+        </NavbarContainer>
+      ) : (
+        isVisible && (
           <NavbarContainer>
-            <Flex>
-              <Image src={ONLY_LOGO} width="8" />
+            <Flex data-testid="navbar">
+              <Image
+                src={ONLY_LOGO}
+                width="8"
+                alt={`Logo for ${APP_NAME}`}
+                data-testid="logo"
+              />
               <Heading as="h1" size="lg" letterSpacing={"-.1rem"} pl="2">
                 {APP_NAME}
               </Heading>
@@ -117,7 +142,8 @@ const Navbar: React.FC = () => {
             <MenuLinks isOpen={isOpen} />
             <MenuToggle toggle={toggle} isOpen={isOpen} />
           </NavbarContainer>
-        ))}
+        )
+      )}
     </>
   );
 };

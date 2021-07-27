@@ -33,6 +33,7 @@ export const EMAIL_PLACEHOLDER = "user@succour.xyz";
 
 // Menu bar items
 export const HOME = "Home";
+export const ROOT_ROUTE = "/";
 export const HOME_ROUTE = "/dashboard";
 export const PROFILE = "My Profile";
 export const PROFILE_ROUTE = "/profile";
@@ -55,7 +56,7 @@ export const MENU = "Menu";
 export const SIGN_UP_HELPER = "Don't have an account? ";
 
 // Active Country list
-export const COUNTRIES: { key: number; name: any; value: any }[] = [
+export const COUNTRIES: { key: number; name: string; value: string }[] = [
   { key: 0, name: "India", value: "india" },
   { key: 1, name: "Canada", value: "canada" },
   { key: 2, name: "Usa", value: "usa" },
