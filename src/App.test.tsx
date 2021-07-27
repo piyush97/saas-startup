@@ -5,7 +5,7 @@ const KEY = "some.fake.key";
 
 createClient(URL, KEY);
 
-test("Build to succeed", async () => {
+test("Build to succeed", () => {
   // Basic test to ensure TS build is working.
   expect(true).toEqual(true);
 });
