@@ -6,14 +6,14 @@ Please find the video's code by branch name
 
 Based on <a href="https://www.youtube.com/playlist?list=PLpkrMokklzr17jNBSLGiag2QNb6cSSwOh">My Youtube Course</a>
 
-- <a href="https://github.com/piyush97/saas-startup">Part 1</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part2/hello-world-and-setup">Part 2</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part3/custom-components">Part 3</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part4/creating-footer">Part 4</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part5/hero">Part 5</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part6/routing">Part 6</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part7/login">Part 7</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part8/supabase">Part 8</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part9/error-messages">Part 9</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part10/protected-routes">Part 10</a>
-- <a href="https://github.com/piyush97/saas-startup/tree/part11/Dashboard">Part 11</a>
+- <a href="https://github.com/piyush97/saas-startup">Boiler Plate</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part2/hello-world-and-setup">Hello world and Setup</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part3/custom-components">Custom Components</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part4/creating-footer">Footer</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part5/hero">Hero</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part6/routing">Routing</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part7/login">Login</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part8/supabase">Supabase</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part9/error-messages">Error Handling</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part10/protected-routes">Protected Routes</a>
+- <a href="https://github.com/piyush97/saas-startup/tree/part11/Dashboard">Dashboard</a>
