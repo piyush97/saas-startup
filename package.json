@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "REACT_APP_SUPABASE_URL=http://localhost:4000 REACT_APP_SUPABASE_ANON_KEY=some.fake.key react-scripts test",
+    "test": " CI=true REACT_APP_SUPABASE_URL=http://localhost:4000 REACT_APP_SUPABASE_ANON_KEY=some.fake.key react-scripts test --coverage=true --coverageReporters=cobertura",
     "test:coverage": "CI=true yarn test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
