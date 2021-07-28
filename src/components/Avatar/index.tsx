@@ -124,6 +124,7 @@ const Avatar: React.FC<AvatarProps> = ({
         </Grid>
       </label>
       <input
+        data-testid="upload-button"
         style={{
           visibility: "hidden",
           position: "absolute",

@@ -50,15 +50,15 @@ describe("Navbar", () => {
     await navigate("/");
 
     // Navbar Menu currently contains these three items
-    expect(getByText("Home")).toBeTruthy();
-    expect(getByText("Login")).toBeTruthy();
-    expect(getByText("Sign Up")).toBeTruthy();
+    expect(getByText("Home")).toBeInTheDocument();
+    expect(getByText("Login")).toBeInTheDocument();
+    expect(getByText("Sign Up")).toBeInTheDocument();
 
     // Title is the app name
-    expect(getByText(APP_NAME)).toBeTruthy();
+    expect(getByText(APP_NAME)).toBeInTheDocument();
 
     // and a Theme switch
-    expect(getByTestId("theme-switch")).toBeTruthy();
+    expect(getByTestId("theme-switch")).toBeInTheDocument();
   });
 
   it("Navbar Content If user Logged In and is on HomePage/SignUp/Login", async () => {
@@ -78,11 +78,11 @@ describe("Navbar", () => {
     // Navbar Menu currently contains None and Navbar will only render SignOut and Theme Button
     /** @type {HTMLElement} */
     let navbarMenu: HTMLElement[] = [];
-    expect(getByText("Sign Out")).toBeTruthy();
+    expect(getByText("Sign Out")).toBeInTheDocument();
     navbarMenu.push(getByText("Sign Out"));
 
     // and a Theme switch
-    expect(await findByTestId("theme-switch")).toBeTruthy();
+    expect(await findByTestId("theme-switch")).toBeInTheDocument();
   });
 
   it("Navbar Content If user Logged In and is on Public Route", async () => {
@@ -103,11 +103,11 @@ describe("Navbar", () => {
     // Navbar Menu currently contains None and Navbar will only render SignOut and Theme Button
     /** @type {HTMLElement} */
     let navbarMenu: HTMLElement[] = [];
-    expect(getByText("Sign Out")).toBeTruthy();
+    expect(getByText("Sign Out")).toBeInTheDocument();
     navbarMenu.push(getByText("Sign Out"));
-    expect(await findByTestId("navbar")).toBeTruthy();
+    expect(await findByTestId("navbar")).toBeInTheDocument();
 
     // and a Theme switch
-    expect(await findByTestId("theme-switch")).toBeTruthy();
+    expect(await findByTestId("theme-switch")).toBeInTheDocument();
   });
 });
