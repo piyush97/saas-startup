@@ -5,7 +5,7 @@ afterEach(cleanup);
 
 describe("Avatar", () => {
   it("should render with Initials if URL not given or wrong and upload function check", () => {
-    const { getByText, debug, getByTestId } = render(
+    const { getByText, getByTestId } = render(
       <Avatar
         url="hello"
         size={2}
